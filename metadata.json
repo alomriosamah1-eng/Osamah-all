@@ -1,0 +1,7 @@
+{
+  "name": "Osamah Agent",
+  "description": "وكيل أسامة — Personal Practical AI Agent for Android with Voice, Planning, Research, Browser, PDF, and Presentations",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

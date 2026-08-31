@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Osamah Agent</string>
+    <string name="app_tagline">وكيل أسامة — وكيلك الذكي لتنفيذ المهام والأبحاث</string>
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_chat">المحادثة</string>
+    <string name="nav_browser">المتصفح</string>
+    <string name="nav_presentations">العروض</string>
+    <string name="nav_files">الملفات</string>
+    <string name="nav_settings">الإعدادات</string>
+
+    <!-- Home -->
+    <string name="home_greeting_morning">صباح الخير،</string>
+    <string name="home_greeting_evening">مساء الخير،</string>
+    <string name="home_search_hint">ما هي المهمة التي تريد إنجازها اليوم؟</string>
+    <string name="home_quick_actions">إجراءات سريعة</string>
+    <string name="home_action_research">بحث معمق</string>
+    <string name="home_action_presentation">إنشاء عرض تقديمي</string>
+    <string name="home_action_pdf">توليد تقرير PDF</string>
+    <string name="home_action_browse">تصفح الويب</string>
+    <string name="home_recent_tasks">المهام الجارية والأخيرة</string>
+    <string name="home_smart_suggestions">اقتراحات ذكية</string>
+
+    <!-- Chat & Agent -->
+    <string name="chat_input_hint">تحدث أو اكتب مهمتك لوكيل أسامة…</string>
+    <string name="agent_state_idle">جاهز للأوامر</string>
+    <string name="agent_state_listening">جارٍ الاستماع إليك…</string>
+    <string name="agent_state_thinking">جارٍ التحليل والتخطيط للمهمة…</string>
+    <string name="agent_state_executing">جارٍ تنفيذ الأداة والخطوات…</string>
+    <string name="agent_state_speaking">يتحدث الوكيل…</string>
+    <string name="agent_state_error">تعذر إكمال الخطوة — جارٍ المحاولة البديلة</string>
+
+    <!-- Voice Settings -->
+    <string name="voice_settings_title">إعدادات المحادثات الصوتية</string>
+    <string name="voice_gender">نوع الصوت</string>
+    <string name="voice_male">صوت ذكوري</string>
+    <string name="voice_female">صوت أنثوي</string>
+    <string name="voice_accent_syrian">اللهجة السورية</string>
+    <string name="voice_accent_fusha">العربية الفصحى</string>
+    <string name="voice_speed">سرعة الكلام</string>
+    <string name="voice_pitch">طبقة الصوت</string>
+    <string name="voice_bubble_selection">اختر كرة المحادثة التفاعلية (1 - 19)</string>
+
+    <!-- Presentations & Documents -->
+    <string name="presentation_title">استوديو العروض التقديمية</string>
+    <string name="presentation_create_new">إنشاء عرض جديد</string>
+    <string name="presentation_export_pdf">تصدير إلى PDF</string>
+    <string name="presentation_slides_count">عدد الشرائح</string>
+
+    <!-- Profile & Memory -->
+    <string name="profile_title">الملف المهني والشخصي</string>
+    <string name="memory_title">الذاكرة الانتقائية</string>
+    <string name="memory_clear_all">مسح الذاكرة بالكامل</string>
+    <string name="privacy_title">مركز الخصوصية والأمان</string>
+    <string name="about_developer_info">تم تطوير هذا الوكيل بواسطة المهندس أسامة محمد علي سعيد العُمري كوكيل شخصي عملي متعدد القدرات والأدوات.</string>
+</resources>
