@@ -27,9 +27,8 @@ class VoiceHelper(
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
             isTtsInitialized = true
-            // Arabic locale support
-            val arabicLocale = Locale("ar", "SY") // Syrian Arabic locale
-            val result = tts?.setLanguage(arabicLocale)
+            // Prefer Arabic for initialization; speak() selects Arabic or English per response.
+            val result = tts?.setLanguage(Locale("ar", "SY"))
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 tts?.setLanguage(Locale("ar"))
             }
@@ -52,6 +51,14 @@ class VoiceHelper(
 
     fun speak(text: String, isFemale: Boolean = false, speed: Float = 1.0f, pitch: Float = 1.0f) {
         if (!isTtsInitialized || tts == null) return
+
+        // Select a real installed locale; Android may fall back if a voice pack is unavailable.
+        val containsArabic = text.any { it in '\u0600'..'\u06FF' }
+        val locale = if (containsArabic) Locale("ar", "SY") else Locale.ENGLISH
+        val localeResult = tts?.setLanguage(locale)
+        if (localeResult == TextToSpeech.LANG_MISSING_DATA || localeResult == TextToSpeech.LANG_NOT_SUPPORTED) {
+            tts?.setLanguage(if (containsArabic) Locale("ar") else Locale.US)
+        }
 
         // Male vs Female voice acoustic characteristics
         val actualPitch = if (isFemale) pitch * 1.35f else pitch * 0.88f

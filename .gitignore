@@ -16,3 +16,16 @@
 local.properties
 .env
 debug.keystore
+
+debug.keystore
+local.properties
+build.log
+master-build.log
+test.log
+keytool.log
+launch.log
+test_target.txt
+branding_hits.txt
+COMPLIANCE_AUDIT.txt
+PREBUILD_GATE.txt
+emulator-home.png

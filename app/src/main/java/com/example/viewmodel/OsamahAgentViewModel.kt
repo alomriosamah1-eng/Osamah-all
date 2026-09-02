@@ -175,7 +175,7 @@ class OsamahAgentViewModel(application: Application) : AndroidViewModel(applicat
 
             // 5. Add Agent Message
             val toolInfo = if (planResult.routedModelName != null) {
-                "${planResult.primaryToolUsed ?: "OpenCode Core"} [${planResult.routedModelName}]"
+                "${planResult.primaryToolUsed ?: "محرك الوكيل"} [${planResult.routedModelName}]"
             } else {
                 planResult.primaryToolUsed
             }

@@ -1,0 +1,1087 @@
+=== TRACKED FILES ===
+.env.example
+.gitignore
+OPENCODE_INTEGRATION_SOURCE.md
+app/.gitignore
+app/build.gradle.kts
+app/proguard-rules.pro
+app/src/androidTest/java/com/example/ExampleInstrumentedTest.kt
+app/src/main/AndroidManifest.xml
+app/src/main/java/com/example/MainActivity.kt
+app/src/main/java/com/example/agent/AgentCore.kt
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt
+app/src/main/java/com/example/agent/tools/Tool.kt
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt
+app/src/main/java/com/example/data/local/AppDatabase.kt
+app/src/main/java/com/example/data/local/dao/AgentDao.kt
+app/src/main/java/com/example/data/local/entity/Entities.kt
+app/src/main/java/com/example/data/remote/GeminiService.kt
+app/src/main/java/com/example/data/repository/AgentRepository.kt
+app/src/main/java/com/example/engine/OpenCodeEngine.kt
+app/src/main/java/com/example/engine/PdfEngine.kt
+app/src/main/java/com/example/engine/VoiceHelper.kt
+app/src/main/java/com/example/ui/components/GlassComponents.kt
+app/src/main/java/com/example/ui/components/VoiceBubbleCanvas.kt
+app/src/main/java/com/example/ui/navigation/NavComponents.kt
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt
+app/src/main/java/com/example/ui/screens/ChatScreen.kt
+app/src/main/java/com/example/ui/screens/FilesScreen.kt
+app/src/main/java/com/example/ui/screens/HomeScreen.kt
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt
+app/src/main/java/com/example/ui/theme/Color.kt
+app/src/main/java/com/example/ui/theme/Theme.kt
+app/src/main/java/com/example/ui/theme/Type.kt
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt
+app/src/main/res/drawable/ic_launcher_background.xml
+app/src/main/res/drawable/ic_launcher_foreground.xml
+app/src/main/res/drawable/ic_osamah_agent_logo_1788139296791.jpg
+app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+app/src/main/res/mipmap-hdpi/ic_launcher.webp
+app/src/main/res/mipmap-hdpi/ic_launcher_round.webp
+app/src/main/res/mipmap-mdpi/ic_launcher.webp
+app/src/main/res/mipmap-mdpi/ic_launcher_round.webp
+app/src/main/res/mipmap-xhdpi/ic_launcher.webp
+app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp
+app/src/main/res/mipmap-xxhdpi/ic_launcher.webp
+app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp
+app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp
+app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp
+app/src/main/res/values/colors.xml
+app/src/main/res/values/strings.xml
+app/src/main/res/values/themes.xml
+app/src/main/res/xml/backup_rules.xml
+app/src/main/res/xml/data_extraction_rules.xml
+app/src/main/res/xml/file_paths.xml
+app/src/test/java/com/example/ExampleRobolectricTest.kt
+app/src/test/java/com/example/ExampleUnitTest.kt
+app/src/test/java/com/example/GreetingScreenshotTest.kt
+app/src/test/screenshots/greeting.png
+assets/.aistudio/.gitignore
+build.gradle.kts
+gradle.properties
+gradle/libs.versions.toml
+gradle/wrapper/gradle-wrapper.properties
+metadata.json
+settings.gradle.kts
+=== KOTLIN SOURCES ===
+app/src/main/java/com/example/MainActivity.kt
+app/src/main/java/com/example/agent/AgentCore.kt
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt
+app/src/main/java/com/example/agent/tools/Tool.kt
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt
+app/src/main/java/com/example/data/local/AppDatabase.kt
+app/src/main/java/com/example/data/local/dao/AgentDao.kt
+app/src/main/java/com/example/data/local/entity/Entities.kt
+app/src/main/java/com/example/data/remote/GeminiService.kt
+app/src/main/java/com/example/data/repository/AgentRepository.kt
+app/src/main/java/com/example/engine/OpenCodeEngine.kt
+app/src/main/java/com/example/engine/PdfEngine.kt
+app/src/main/java/com/example/engine/VoiceHelper.kt
+app/src/main/java/com/example/ui/components/GlassComponents.kt
+app/src/main/java/com/example/ui/components/VoiceBubbleCanvas.kt
+app/src/main/java/com/example/ui/navigation/NavComponents.kt
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt
+app/src/main/java/com/example/ui/screens/ChatScreen.kt
+app/src/main/java/com/example/ui/screens/FilesScreen.kt
+app/src/main/java/com/example/ui/screens/HomeScreen.kt
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt
+app/src/main/java/com/example/ui/theme/Color.kt
+app/src/main/java/com/example/ui/theme/Theme.kt
+app/src/main/java/com/example/ui/theme/Type.kt
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt
+=== UI/NAV/VIEWMODEL/REPOSITORY/DB/VOICE/BROWSER ===
+app/src/main/java/com/example/MainActivity.kt:7:import androidx.activity.viewModels
+app/src/main/java/com/example/MainActivity.kt:14:import androidx.compose.runtime.CompositionLocalProvider
+app/src/main/java/com/example/MainActivity.kt:20:import com.example.ui.navigation.OsamahBottomNavigation
+app/src/main/java/com/example/MainActivity.kt:23:import com.example.viewmodel.OsamahAgentViewModel
+app/src/main/java/com/example/MainActivity.kt:27:    private val viewModel: OsamahAgentViewModel by viewModels()
+app/src/main/java/com/example/MainActivity.kt:34:                CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
+app/src/main/java/com/example/MainActivity.kt:35:                    OsamahAgentApp(viewModel = viewModel)
+app/src/main/java/com/example/MainActivity.kt:43:fun OsamahAgentApp(viewModel: OsamahAgentViewModel) {
+app/src/main/java/com/example/MainActivity.kt:44:    val uiState by viewModel.uiState.collectAsState()
+app/src/main/java/com/example/MainActivity.kt:49:            OsamahBottomNavigation(
+app/src/main/java/com/example/MainActivity.kt:51:                onTabSelected = { viewModel.selectTab(it) }
+app/src/main/java/com/example/MainActivity.kt:60:            Crossfade(targetState = uiState.currentTab, label = "ScreenTransition") { tab ->
+app/src/main/java/com/example/MainActivity.kt:62:                    "home" -> HomeScreen(
+app/src/main/java/com/example/MainActivity.kt:63:                        viewModel = viewModel,
+app/src/main/java/com/example/MainActivity.kt:64:                        onNavigateToTab = { viewModel.selectTab(it) }
+app/src/main/java/com/example/MainActivity.kt:66:                    "chat" -> ChatScreen(viewModel = viewModel)
+app/src/main/java/com/example/MainActivity.kt:67:                    "browser" -> BrowserScreen(viewModel = viewModel)
+app/src/main/java/com/example/MainActivity.kt:68:                    "presentations" -> PresentationsScreen(viewModel = viewModel)
+app/src/main/java/com/example/MainActivity.kt:69:                    "files" -> FilesScreen(viewModel = viewModel)
+app/src/main/java/com/example/MainActivity.kt:70:                    "settings" -> SettingsScreen(viewModel = viewModel)
+app/src/main/java/com/example/MainActivity.kt:71:                    else -> HomeScreen(
+app/src/main/java/com/example/MainActivity.kt:72:                        viewModel = viewModel,
+app/src/main/java/com/example/MainActivity.kt:73:                        onNavigateToTab = { viewModel.selectTab(it) }
+app/src/main/java/com/example/agent/AgentCore.kt:5:import com.example.agent.opencode.OpenCodeControlSubsystem
+app/src/main/java/com/example/agent/AgentCore.kt:26:    val routedModelName: String? = null,
+app/src/main/java/com/example/agent/AgentCore.kt:32:    private val openCodeSubsystem = OpenCodeControlSubsystem.getInstance(context)
+app/src/main/java/com/example/agent/AgentCore.kt:36:        BrowserTool(),
+app/src/main/java/com/example/agent/AgentCore.kt:40:        MemoryTool()
+app/src/main/java/com/example/agent/AgentCore.kt:51:        // 1. Intelligent Task Routing & Token Optimization via OpenCode Subsystem
+app/src/main/java/com/example/agent/AgentCore.kt:80:                routingDecision.selectedModel.displayName,
+app/src/main/java/com/example/agent/AgentCore.kt:105:        // 5. Anti-Hallucination Grounded Response via OpenCode Subsystem
+app/src/main/java/com/example/agent/AgentCore.kt:114:        val promptForModel = """
+app/src/main/java/com/example/agent/AgentCore.kt:121:            prompt = promptForModel,
+app/src/main/java/com/example/agent/AgentCore.kt:124:            targetModel = routingDecision.selectedModel,
+app/src/main/java/com/example/agent/AgentCore.kt:139:            routedModelName = routingDecision.selectedModel.displayName,
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:17:/** Metadata and runtime identity taken from the OpenCode/Models.dev provider model contract. */
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:18:data class ProviderModel(
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:32:data class ProviderDefinition(
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:38:    val models: List<ProviderModel>
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:44:object ProviderRegistry {
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:45:    val providers: List<ProviderDefinition> = listOf(
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:46:        ProviderDefinition(
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:53:                ProviderModel("google", "gemini-2.5-flash", "Gemini 2.5 Flash", 1_048_576, vision = true, reasoning = true, structuredOutput = true)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:56:        ProviderDefinition(
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:63:                ProviderModel("openai", "gpt-4o", "GPT-4o", 128_000, vision = true, reasoning = false, structuredOutput = true)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:66:        ProviderDefinition(
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:73:                ProviderModel("deepseek", "deepseek-chat", "DeepSeek Chat", 128_000, reasoning = false)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:78:    fun model(providerId: String, modelId: String): ProviderModel = providers
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:80:        ?: throw ProviderException.InvalidModel(providerId, modelId)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:84:enum class OpenCodeModel(val providerModel: ProviderModel, val contextWindow: String, val costEfficiency: String, val specialtyAr: String) {
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:85:    GEMINI_2_5_FLASH(ProviderRegistry.model("google", "gemini-2.5-flash"), "1M Tokens", "عالية", "الاستجابة الفورية والتحليل متعدد الوسائط"),
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:86:    GPT_4O(ProviderRegistry.model("openai", "gpt-4o"), "128K Tokens", "قياسية", "حل المشكلات والمنطق متعدد الوسائط"),
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:87:    DEEPSEEK_CHAT(ProviderRegistry.model("deepseek", "deepseek-chat"), "128K Tokens", "اقتصادية", "البرمجة والمنطق");
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:89:    val modelId: String get() = providerModel.modelId
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:90:    val displayName: String get() = providerModel.displayName
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:91:    val provider: String get() = providerModel.providerId
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:100:data class OpenCodeEngineConfig(
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:101:    val activeModel: OpenCodeModel = OpenCodeModel.GEMINI_2_5_FLASH,
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:109:data class OpenCodeTaskRoutingDecision(
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:110:    val selectedModel: OpenCodeModel,
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:120:sealed class ProviderException(message: String, cause: Throwable? = null) : IOException(message, cause) {
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:121:    class MissingCredential(val provider: String) : ProviderException("Missing runtime credential for provider: $provider")
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:122:    class InvalidModel(val provider: String, val model: String) : ProviderException("Invalid model $provider/$model")
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:123:    class Http(val status: Int, body: String) : ProviderException("Provider HTTP $status: ${body.take(500)}")
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:124:    class Protocol(message: String) : ProviderException(message)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:127:class OpenCodeControlSubsystem private constructor(private val context: Context) {
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:135:    var config: OpenCodeEngineConfig = OpenCodeEngineConfig(); private set
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:136:    fun updateModel(model: OpenCodeModel) { config = config.copy(activeModel = model) }
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:141:    fun routeTaskIntelligently(userInput: String): OpenCodeTaskRoutingDecision {
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:145:            config.routingStrategy == RoutingStrategy.TOKEN_SAVER -> OpenCodeModel.GEMINI_2_5_FLASH
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:146:            config.routingStrategy == RoutingStrategy.MAX_PERFORMANCE -> config.activeModel
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:147:            userInput.length < 80 -> OpenCodeModel.GEMINI_2_5_FLASH
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:148:            else -> config.activeModel
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:152:        return OpenCodeTaskRoutingDecision(selected, "اختيار نموذج مسجل في ProviderRegistry وقابل للتشغيل فعليًا", compressed, original, savings)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:159:        targetModel: OpenCodeModel,
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:164:        val provider = ProviderRegistry.providers.first { it.id == targetModel.providerModel.providerId }
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:166:            ?: throw ProviderException.MissingCredential(provider.id)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:173:            Protocol.GEMINI_GENERATIVE_LANGUAGE -> streamGemini(provider, targetModel.providerModel, key, system, prompt, tools, onChunk, onToolCall)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:174:            Protocol.OPENAI_CHAT_COMPLETIONS -> streamOpenAi(provider, targetModel.providerModel, key, messages, tools, onChunk, onToolCall)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:188:    private fun streamGemini(provider: ProviderDefinition, model: ProviderModel, key: String, system: String, prompt: String, tools: List<ToolDefinition>, onChunk: (String) -> Unit, onToolCall: (ToolCallRequest) -> Unit): String {
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:208:    private fun streamOpenAi(provider: ProviderDefinition, model: ProviderModel, key: String, messages: List<JSONObject>, tools: List<ToolDefinition>, onChunk: (String) -> Unit, onToolCall: (ToolCallRequest) -> Unit): String {
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:225:        var lastError: ProviderException? = null
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:229:                    val source = response.body?.source() ?: throw ProviderException.Protocol("Provider returned an empty body")
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:233:                        val error = ProviderException.Http(response.code, body)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:246:                            .getOrElse { throw ProviderException.Protocol("Malformed provider SSE event") }
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:250:            } catch (e: ProviderException) {
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:253:                if (attempt == 2) throw ProviderException.Protocol("Provider network failure: ${e.message}")
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:254:                lastError = ProviderException.Protocol("Provider network failure: ${e.message}")
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:258:        throw lastError ?: ProviderException.Protocol("Provider request failed")
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:262:        @Volatile private var INSTANCE: OpenCodeControlSubsystem? = null
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:263:        fun getInstance(context: Context): OpenCodeControlSubsystem = INSTANCE ?: synchronized(this) { INSTANCE ?: OpenCodeControlSubsystem(context.applicationContext).also { INSTANCE = it } }
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:42:class BrowserTool : AgentTool {
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:228:class MemoryTool : AgentTool {
+app/src/main/java/com/example/data/local/AppDatabase.kt:5:import androidx.room.Room
+app/src/main/java/com/example/data/local/AppDatabase.kt:6:import androidx.room.RoomDatabase
+app/src/main/java/com/example/data/local/AppDatabase.kt:7:import com.example.data.local.dao.AgentDao
+app/src/main/java/com/example/data/local/AppDatabase.kt:13:        MemoryEntity::class,
+app/src/main/java/com/example/data/local/AppDatabase.kt:14:        ConversationEntity::class,
+app/src/main/java/com/example/data/local/AppDatabase.kt:21:        VoiceSettingsEntity::class
+app/src/main/java/com/example/data/local/AppDatabase.kt:26:abstract class AppDatabase : RoomDatabase() {
+app/src/main/java/com/example/data/local/AppDatabase.kt:28:    abstract fun agentDao(): AgentDao
+app/src/main/java/com/example/data/local/AppDatabase.kt:36:                val instance = Room.databaseBuilder(
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:3:import androidx.room.Dao
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:12:@Dao
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:13:interface AgentDao {
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:27:    fun getAllMemoriesFlow(): Flow<List<MemoryEntity>>
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:30:    suspend fun getAllMemories(): List<MemoryEntity>
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:33:    suspend fun getMemoriesByCategory(category: String): List<MemoryEntity>
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:36:    suspend fun insertMemory(memory: MemoryEntity): Long
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:39:    suspend fun deleteMemory(memory: MemoryEntity)
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:42:    suspend fun deleteMemoryById(id: Long)
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:47:    // Conversations
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:49:    fun getAllConversationsFlow(): Flow<List<ConversationEntity>>
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:52:    suspend fun insertOrUpdateConversation(conversation: ConversationEntity)
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:55:    suspend fun deleteConversation(conversationId: String)
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:59:    fun getMessagesForConversationFlow(conversationId: String): Flow<List<MessageEntity>>
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:62:    suspend fun getMessagesForConversation(conversationId: String): List<MessageEntity>
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:68:    suspend fun deleteMessagesForConversation(conversationId: String)
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:130:    // Voice Settings
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:132:    fun getVoiceSettingsFlow(): Flow<VoiceSettingsEntity?>
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:135:    suspend fun getVoiceSettings(): VoiceSettingsEntity?
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:138:    suspend fun insertOrUpdateVoiceSettings(settings: VoiceSettingsEntity)
+app/src/main/java/com/example/data/local/entity/Entities.kt:22:data class MemoryEntity(
+app/src/main/java/com/example/data/local/entity/Entities.kt:32:data class ConversationEntity(
+app/src/main/java/com/example/data/local/entity/Entities.kt:108:data class VoiceSettingsEntity(
+app/src/main/java/com/example/data/repository/AgentRepository.kt:3:import com.example.data.local.dao.AgentDao
+app/src/main/java/com/example/data/repository/AgentRepository.kt:7:class AgentRepository(private val agentDao: AgentDao) {
+app/src/main/java/com/example/data/repository/AgentRepository.kt:10:    val userProfile: Flow<UserProfileEntity?> = agentDao.getUserProfileFlow()
+app/src/main/java/com/example/data/repository/AgentRepository.kt:13:        val existing = agentDao.getUserProfile()
+app/src/main/java/com/example/data/repository/AgentRepository.kt:16:        agentDao.insertOrUpdateUserProfile(defaultProfile)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:21:        agentDao.insertOrUpdateUserProfile(profile)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:25:    val allMemories: Flow<List<MemoryEntity>> = agentDao.getAllMemoriesFlow()
+app/src/main/java/com/example/data/repository/AgentRepository.kt:27:    suspend fun getMemoriesList(): List<MemoryEntity> = agentDao.getAllMemories()
+app/src/main/java/com/example/data/repository/AgentRepository.kt:29:    suspend fun addMemory(category: String, key: String, value: String, importance: Int = 3): Long {
+app/src/main/java/com/example/data/repository/AgentRepository.kt:30:        return agentDao.insertMemory(
+app/src/main/java/com/example/data/repository/AgentRepository.kt:31:            MemoryEntity(
+app/src/main/java/com/example/data/repository/AgentRepository.kt:40:    suspend fun deleteMemory(id: Long) {
+app/src/main/java/com/example/data/repository/AgentRepository.kt:41:        agentDao.deleteMemoryById(id)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:45:        agentDao.clearAllMemories()
+app/src/main/java/com/example/data/repository/AgentRepository.kt:48:    // Conversations
+app/src/main/java/com/example/data/repository/AgentRepository.kt:49:    val allConversations: Flow<List<ConversationEntity>> = agentDao.getAllConversationsFlow()
+app/src/main/java/com/example/data/repository/AgentRepository.kt:51:    suspend fun createConversation(id: String, title: String) {
+app/src/main/java/com/example/data/repository/AgentRepository.kt:52:        agentDao.insertOrUpdateConversation(ConversationEntity(id = id, title = title))
+app/src/main/java/com/example/data/repository/AgentRepository.kt:55:    suspend fun deleteConversation(id: String) {
+app/src/main/java/com/example/data/repository/AgentRepository.kt:56:        agentDao.deleteMessagesForConversation(id)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:57:        agentDao.deleteConversation(id)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:61:        agentDao.getMessagesForConversationFlow(conversationId)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:64:        agentDao.getMessagesForConversation(conversationId)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:76:        return agentDao.insertMessage(
+app/src/main/java/com/example/data/repository/AgentRepository.kt:91:    val allTasks: Flow<List<TaskEntity>> = agentDao.getAllTasksFlow()
+app/src/main/java/com/example/data/repository/AgentRepository.kt:94:        agentDao.getTaskStepsFlow(taskId)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:97:        agentDao.insertOrUpdateTask(task)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:99:            agentDao.insertTaskStep(step)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:104:        val task = agentDao.getTaskById(taskId)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:107:            agentDao.insertOrUpdateTask(task.copy(status = status, completedAt = completedTime))
+app/src/main/java/com/example/data/repository/AgentRepository.kt:112:        agentDao.updateTaskStep(step)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:116:    val allPresentations: Flow<List<PresentationEntity>> = agentDao.getAllPresentationsFlow()
+app/src/main/java/com/example/data/repository/AgentRepository.kt:119:        agentDao.getSlidesForPresentationFlow(presentationId)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:122:        agentDao.getSlidesForPresentation(presentationId)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:125:        agentDao.insertOrUpdatePresentation(presentation)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:126:        agentDao.deleteSlidesForPresentation(presentation.id)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:127:        agentDao.insertSlides(slides)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:131:        agentDao.deleteSlidesForPresentation(id)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:132:        agentDao.deletePresentation(id)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:136:    val auditLogs: Flow<List<AuditLogEntity>> = agentDao.getAuditLogsFlow()
+app/src/main/java/com/example/data/repository/AgentRepository.kt:139:        agentDao.insertAuditLog(
+app/src/main/java/com/example/data/repository/AgentRepository.kt:150:        agentDao.clearAuditLogs()
+app/src/main/java/com/example/data/repository/AgentRepository.kt:153:    // Voice Settings
+app/src/main/java/com/example/data/repository/AgentRepository.kt:154:    val voiceSettings: Flow<VoiceSettingsEntity?> = agentDao.getVoiceSettingsFlow()
+app/src/main/java/com/example/data/repository/AgentRepository.kt:156:    suspend fun getVoiceSettings(): VoiceSettingsEntity {
+app/src/main/java/com/example/data/repository/AgentRepository.kt:157:        val current = agentDao.getVoiceSettings()
+app/src/main/java/com/example/data/repository/AgentRepository.kt:159:        val defaultSettings = VoiceSettingsEntity()
+app/src/main/java/com/example/data/repository/AgentRepository.kt:160:        agentDao.insertOrUpdateVoiceSettings(defaultSettings)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:164:    suspend fun saveVoiceSettings(settings: VoiceSettingsEntity) {
+app/src/main/java/com/example/data/repository/AgentRepository.kt:165:        agentDao.insertOrUpdateVoiceSettings(settings)
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:30:class OpenCodeEngine(private val context: Context) {
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:64:                // OpenCode Web Extraction Automation
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:80:                console.log("جارٍ استخراج وتصفية محتوى صفحة الويب عبر OpenCode...");
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:93:                # OpenCode Python Data Analytics
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:102:                print(f"=== تقرير تحليلات البيانات — OpenCode ===")
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:122:                val payload = "Osamah-Agent-Secure-Memory-2026"
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:153:            val usedMem = (runtime.totalMemory() - runtime.freeMemory()) / 1024
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:193:            out.appendLine("🚀 [OpenCode Kotlin Engine]")
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:217:            out.appendLine("🐍 [OpenCode Python Interpreter]")
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:240:            out.appendLine("⚡ [OpenCode V8 JavaScript Runtime]")
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:249:        return "⚙️ [OpenCode Shell Script Engine]\n" +
+app/src/main/java/com/example/engine/PdfEngine.kt:44:                paint.color = Color.parseColor("#0B132B") // Deep Navy
+app/src/main/java/com/example/engine/VoiceHelper.kt:8:import android.speech.SpeechRecognizer
+app/src/main/java/com/example/engine/VoiceHelper.kt:9:import android.speech.tts.TextToSpeech
+app/src/main/java/com/example/engine/VoiceHelper.kt:14:class VoiceHelper(
+app/src/main/java/com/example/engine/VoiceHelper.kt:17:) : TextToSpeech.OnInitListener {
+app/src/main/java/com/example/engine/VoiceHelper.kt:19:    private var tts: TextToSpeech? = null
+app/src/main/java/com/example/engine/VoiceHelper.kt:21:    private var speechRecognizer: SpeechRecognizer? = null
+app/src/main/java/com/example/engine/VoiceHelper.kt:24:        tts = TextToSpeech(context.applicationContext, this)
+app/src/main/java/com/example/engine/VoiceHelper.kt:28:        if (status == TextToSpeech.SUCCESS) {
+app/src/main/java/com/example/engine/VoiceHelper.kt:33:            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+app/src/main/java/com/example/engine/VoiceHelper.kt:59:        tts?.setSpeechRate(speed.coerceIn(0.5f, 2.0f))
+app/src/main/java/com/example/engine/VoiceHelper.kt:63:        tts?.speak(cleanText, TextToSpeech.QUEUE_FLUSH, params, "OsamahUtterance_${System.currentTimeMillis()}")
+app/src/main/java/com/example/engine/VoiceHelper.kt:72:        if (!SpeechRecognizer.isRecognitionAvailable(context)) {
+app/src/main/java/com/example/engine/VoiceHelper.kt:81:            speechRecognizer = SpeechRecognizer.createSpeechRecognizer(context).apply {
+app/src/main/java/com/example/engine/VoiceHelper.kt:83:                    override fun onReadyForSpeech(params: Bundle?) {}
+app/src/main/java/com/example/engine/VoiceHelper.kt:84:                    override fun onBeginningOfSpeech() {}
+app/src/main/java/com/example/engine/VoiceHelper.kt:87:                    override fun onEndOfSpeech() {}
+app/src/main/java/com/example/engine/VoiceHelper.kt:94:                        val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
+app/src/main/java/com/example/engine/VoiceHelper.kt:120:            Log.e("VoiceHelper", "Error stopping recognizer: ${e.message}")
+app/src/main/java/com/example/ui/components/VoiceBubbleCanvas.kt:65:fun VoiceBubbleCanvas(
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:13:sealed class NavItem(
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:19:    object Home : NavItem("home", "الرئيسية", Icons.Filled.Home, Icons.Outlined.Home)
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:20:    object Chat : NavItem("chat", "المحادثة", Icons.Filled.ChatBubble, Icons.Outlined.ChatBubbleOutline)
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:21:    object Browser : NavItem("browser", "المتصفح", Icons.Filled.Public, Icons.Outlined.Public)
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:22:    object Presentations : NavItem("presentations", "العروض", Icons.Filled.Slideshow, Icons.Outlined.Slideshow)
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:23:    object Files : NavItem("files", "الملفات", Icons.Filled.Folder, Icons.Outlined.Folder)
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:24:    object Settings : NavItem("settings", "الإعدادات", Icons.Filled.Settings, Icons.Outlined.Settings)
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:28:    NavItem.Home,
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:29:    NavItem.Chat,
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:30:    NavItem.Browser,
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:31:    NavItem.Presentations,
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:32:    NavItem.Files,
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:33:    NavItem.Settings
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:37:fun OsamahBottomNavigation(
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:41:    NavigationBar(
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:47:            NavigationBarItem(
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:63:                colors = NavigationBarItemDefaults.colors(
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:33:import com.example.viewmodel.OsamahAgentViewModel
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:36:fun BrowserScreen(
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:37:    viewModel: OsamahAgentViewModel
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:40:    val uiState by viewModel.uiState.collectAsState()
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:42:    var webViewInstance by remember { mutableStateOf<WebView?>(null) }
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:69:        viewModel.setBrowserUrl(target)
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:83:            viewModel.sendUserMessage("$actionPrompt: $pageTitle\nالرابط: ${uiState.browserUrl}\nالمحتوى المستخلص: $cleanText")
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:84:            viewModel.selectTab("chat")
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:93:        // 1. Navigation & Search Bar
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:230:                        imageVector = Icons.Default.OpenInBrowser,
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:249:                    onClick = { viewModel.toggleReaderMode() },
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:309:        // 5. Main WebView or Reader Mode
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:349:                    WebView(ctx).apply {
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:366:                        webViewClient = object : WebViewClient() {
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:367:                            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:371:                                    viewModel.setBrowserUrl(url)
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:375:                            override fun onPageFinished(view: WebView?, url: String?) {
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:380:                                    viewModel.setBrowserUrl(url)
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:385:                                view: WebView?,
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:395:                            override fun onProgressChanged(view: WebView?, newProgress: Int) {
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:400:                            override fun onReceivedTitle(view: WebView?, title: String?) {
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:31:import com.example.ui.components.VoiceBubbleCanvas
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:34:import com.example.viewmodel.OsamahAgentViewModel
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:38:fun ChatScreen(
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:39:    viewModel: OsamahAgentViewModel
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:42:    val uiState by viewModel.uiState.collectAsState()
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:43:    val messages by viewModel.messages.collectAsState()
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:51:            viewModel.startVoiceListening()
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:55:    fun handleVoiceToggle() {
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:57:            viewModel.interruptSpeech()
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:58:        } else if (uiState.isVoiceInputActive) {
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:59:            viewModel.stopVoiceListening()
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:67:                viewModel.startVoiceListening()
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:85:        // Chat Header
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:106:            // Interactive Mini Voice Bubble
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:112:                VoiceBubbleCanvas(
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:116:                    onClick = { handleVoiceToggle() }
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:122:        if (uiState.agentState == BubbleState.SPEAKING || uiState.isVoiceInputActive) {
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:128:                color = if (uiState.isVoiceInputActive) Color(0x26EF4444) else Color(0x2600F0FF),
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:131:                    if (uiState.isVoiceInputActive) Color(0x66EF4444) else Color(0x6600F0FF)
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:143:                            imageVector = if (uiState.isVoiceInputActive) Icons.Default.Mic else Icons.Default.VolumeUp,
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:145:                            tint = if (uiState.isVoiceInputActive) Color(0xFFEF4444) else CyanNeon,
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:150:                            text = if (uiState.isVoiceInputActive) "جارٍ الاستماع إليك..." else "يتحدث وكيل أسامة...",
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:157:                        onClick = { viewModel.interruptSpeech() },
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:196:                    onClick = { handleVoiceToggle() }
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:199:                        imageVector = if (uiState.isVoiceInputActive) Icons.Default.MicOff else Icons.Default.Mic,
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:201:                        tint = if (uiState.isVoiceInputActive) Color(0xFFEF4444) else MaterialTheme.colorScheme.primary
+app/src/main/java/com/example/ui/screens/ChatScreen.kt:230:                            viewModel.sendUserMessage(textToSend)
+app/src/main/java/com/example/ui/screens/FilesScreen.kt:24:import androidx.core.content.FileProvider
+app/src/main/java/com/example/ui/screens/FilesScreen.kt:27:import com.example.viewmodel.OsamahAgentViewModel
+app/src/main/java/com/example/ui/screens/FilesScreen.kt:31:fun FilesScreen(
+app/src/main/java/com/example/ui/screens/FilesScreen.kt:32:    viewModel: OsamahAgentViewModel
+app/src/main/java/com/example/ui/screens/FilesScreen.kt:89:                    viewModel.sendUserMessage("أنشئ تقرير PDF لخطة دراسية متقدمة في Kotlin والأنظمة الذكية")
+app/src/main/java/com/example/ui/screens/FilesScreen.kt:102:                    viewModel.sendUserMessage("أنشئ تقرير PDF تحليلي لمعمارية وكيل أسامة والمشروع")
+app/src/main/java/com/example/ui/screens/FilesScreen.kt:167:            val uri = FileProvider.getUriForFile(
+app/src/main/java/com/example/ui/screens/FilesScreen.kt:184:            val uri = FileProvider.getUriForFile(
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:33:import com.example.viewmodel.OsamahAgentViewModel
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:37:fun HomeScreen(
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:38:    viewModel: OsamahAgentViewModel,
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:39:    onNavigateToTab: (String) -> Unit
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:42:    val uiState by viewModel.uiState.collectAsState()
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:43:    val tasks by viewModel.tasks.collectAsState()
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:49:            viewModel.startVoiceListening()
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:53:    fun handleVoiceToggle() {
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:55:            viewModel.interruptSpeech()
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:56:        } else if (uiState.isVoiceInputActive) {
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:57:            viewModel.stopVoiceListening()
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:65:                viewModel.startVoiceListening()
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:106:                    onClick = { onNavigateToTab("settings") },
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:122:        // 2. Interactive Voice Agent Sphere Card
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:139:                    VoiceBubbleCanvas(
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:143:                        onClick = { handleVoiceToggle() }
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:153:                            onClick = { handleVoiceToggle() },
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:155:                                containerColor = if (uiState.isVoiceInputActive) Color(0xFFEF4444) else MaterialTheme.colorScheme.primary
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:160:                                imageVector = if (uiState.isVoiceInputActive) Icons.Default.MicOff else Icons.Default.Mic,
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:164:                            Text(if (uiState.isVoiceInputActive) "إيقاف الاستماع" else "تحدث صوتياً")
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:168:                            onClick = { onNavigateToTab("chat") },
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:171:                            Icon(imageVector = Icons.Default.ChatBubbleOutline, contentDescription = "كتابة")
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:200:                        viewModel.sendUserMessage("قم بإجراء بحث معمق واستخلاص المصادر والأدلة لأحدث تقنيات 2026")
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:201:                        onNavigateToTab("chat")
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:211:                        viewModel.sendUserMessage("قم بتنظيم وجدولة مهامي وأولوياتي لهذا اليوم مع وضع خطة متكاملة")
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:212:                        onNavigateToTab("chat")
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:228:                    onClick = { onNavigateToTab("presentations") }
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:237:                        viewModel.sendUserMessage("أنشئ لي تقرير PDF تفصيلي عن خطة العمل الهندسية وتطوير الأنظمة")
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:238:                        onNavigateToTab("files")
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:254:                    onClick = { onNavigateToTab("browser") }
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:262:                    onClick = { onNavigateToTab("settings") }
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:283:                            viewModel.sendUserMessage(suggestion)
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:284:                            onNavigateToTab("chat")
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:35:import com.example.engine.OpenCodeEngine
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:39:import com.example.viewmodel.OsamahAgentViewModel
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:43:fun OpenCodeScreen(
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:44:    viewModel: OsamahAgentViewModel
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:48:    val openCodeEngine = remember { OpenCodeEngine(context) }
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:97:                        text = "بيئة OpenCode البرمجية",
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:342:                            text = "$ OpenCode ready. اضغط على \"تشغيل\" لتنفيذ الكود والحصول على المخرجات مباشرة.",
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:349:                            text = "$ جارٍ تجميع وتشغيل البرنامج النصي عبر بيئة OpenCode...",
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:411:                            viewModel.sendUserMessage("اكتب كود برمجياً بلغة $selectedLanguage لتنفيذ: $aiPromptText واشرح طريقة تشغيله في OpenCode")
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:412:                            viewModel.selectTab("chat")
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:26:import com.example.viewmodel.OsamahAgentViewModel
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:29:fun PresentationsScreen(
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:30:    viewModel: OsamahAgentViewModel
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:32:    val presentations by viewModel.presentations.collectAsState()
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:135:                                viewModel.sendUserMessage("أنشئ ملف PDF لعرض: ${pres.title}")
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:136:                                viewModel.selectTab("files")
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:194:                    // Navigation Controls
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:263:                            viewModel.createPresentation(newTopic, newSlideCount)
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:26:import com.example.agent.opencode.OpenCodeControlSubsystem
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:27:import com.example.agent.opencode.OpenCodeModel
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:33:import com.example.viewmodel.OsamahAgentViewModel
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:37:fun SettingsScreen(
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:38:    viewModel: OsamahAgentViewModel
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:41:    val uiState by viewModel.uiState.collectAsState()
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:42:    val memories by viewModel.memories.collectAsState()
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:43:    val auditLogs by viewModel.auditLogs.collectAsState()
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:45:    val openCodeSubsystem = remember { OpenCodeControlSubsystem.getInstance(context) }
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:49:    var showAddMemoryDialog by remember { mutableStateOf(false) }
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:50:    var showClearMemoryConfirm by remember { mutableStateOf(false) }
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:52:    var showModelSelectorDialog by remember { mutableStateOf(false) }
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:70:                text = "إدارة محرك OpenCode، النماذج، كرات المحادثة الـ 19، وضغط التوكن",
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:76:        // 2. OpenCode Master Control Dashboard & Model Selector
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:94:                                text = "لوحة تحكم محرك أوبن كود (OpenCode Control Panel)",
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:114:                        text = "يعمل OpenCode كمحرك وسيرفر محلي مدمج في الخلفية (Second Brain) لإدارة النماذج والوكلاء، توجيه المهام بذكاء، وتقليل استهلاك التوكن، وتوليد العروض الضخمة (100+ شريحة) والمستندات بدقة وبدون هلوسة.",
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:121:                    // Active Model Card
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:123:                        onClick = { showModelSelectorDialog = true },
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:143:                                    text = engineConfig.activeModel.displayName,
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:148:                                    text = "${engineConfig.activeModel.provider} • نافذة السياق: ${engineConfig.activeModel.contextWindow}",
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:249:        // 3. 19 Voice Bubbles Selector
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:272:                            onClick = { viewModel.updateVoiceBubble(bubbleTheme.id) },
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:285:                                VoiceBubbleCanvas(
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:304:        // 4. Voice Engine Customization
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:315:                // Voice Gender
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:325:                            onClick = { viewModel.updateVoiceGender("male") },
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:330:                            onClick = { viewModel.updateVoiceGender("female") },
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:348:                            onClick = { viewModel.updateVoiceAccent("syrian") },
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:353:                            onClick = { viewModel.updateVoiceAccent("fusha") },
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:369:                        viewModel.updateVoiceSliders(it, uiState.voiceSettings.pitch, uiState.voiceSettings.volume)
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:382:                        viewModel.updateVoiceSliders(uiState.voiceSettings.speechRate, it, uiState.voiceSettings.volume)
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:424:        // 6. Selective Memory Management
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:434:                            text = "الذاكرة الانتقائية (Selective Memory)",
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:446:                        IconButton(onClick = { showAddMemoryDialog = true }) {
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:450:                            IconButton(onClick = { showClearMemoryConfirm = true }) {
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:484:                                    IconButton(onClick = { viewModel.deleteMemory(mem.id) }) {
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:539:                    text = "أنا وكيل أسامة، قام بتطويري وهندستي المهندس أسامة محمد علي سعيد العُمري كوكيل شخصي ومساعد ذكي متكامل وعقل ثانٍ، مع دمج محرك وسيرفر OpenCode المحلي كمدبر خفي للمهام والتخطيط والتنفيذ وصناعة العروض والمستندات.",
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:545:                    text = "المحرك المدمج: OpenCode Local Architecture Subsystem • الإصدار: 2.0.0",
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:553:    // Modal: Select Real OpenCode Model
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:554:    if (showModelSelectorDialog) {
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:556:            onDismissRequest = { showModelSelectorDialog = false },
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:557:            title = { Text("اختيار نموذج الذكاء الاصطناعي (OpenCode Models)") },
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:563:                    items(OpenCodeModel.values()) { model ->
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:564:                        val isSelected = engineConfig.activeModel == model
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:567:                                openCodeSubsystem.updateModel(model)
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:569:                                showModelSelectorDialog = false
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:612:                TextButton(onClick = { showModelSelectorDialog = false }) { Text("إغلاق") }
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:684:                        viewModel.updateUserProfile(
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:702:    // Dialog: Add Memory
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:703:    if (showAddMemoryDialog) {
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:708:            onDismissRequest = { showAddMemoryDialog = false },
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:720:                            viewModel.addMemory(key, value)
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:721:                            showAddMemoryDialog = false
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:727:                TextButton(onClick = { showAddMemoryDialog = false }) { Text("إلغاء") }
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:732:    // Dialog: Clear Memory Confirm
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:733:    if (showClearMemoryConfirm) {
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:735:            onDismissRequest = { showClearMemoryConfirm = false },
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:741:                        viewModel.clearAllMemories()
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:742:                        showClearMemoryConfirm = false
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:748:                TextButton(onClick = { showClearMemoryConfirm = false }) { Text("إلغاء") }
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:4:import androidx.lifecycle.AndroidViewModel
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:5:import androidx.lifecycle.viewModelScope
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:9:import com.example.data.repository.AgentRepository
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:10:import com.example.engine.VoiceHelper
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:20:    val currentConversationId: String = "default_session",
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:21:    val isVoiceInputActive: Boolean = false,
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:26:    val voiceSettings: VoiceSettingsEntity = VoiceSettingsEntity(),
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:35:class OsamahAgentViewModel(application: Application) : AndroidViewModel(application) {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:37:    private val repository: AgentRepository
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:39:    private val voiceHelper: VoiceHelper
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:44:    val conversations: StateFlow<List<ConversationEntity>>
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:48:    val memories: StateFlow<List<MemoryEntity>>
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:53:        repository = AgentRepository(database.agentDao())
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:56:        voiceHelper = VoiceHelper(application) { isSpeaking ->
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:62:        conversations = repository.allConversations.stateIn(
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:63:            viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList()
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:67:            viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList()
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:71:            viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList()
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:75:            viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList()
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:79:            viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList()
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:83:            viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList()
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:90:        viewModelScope.launch {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:92:            val voice = repository.getVoiceSettings()
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:98:            repository.createConversation("default_session", "جلسة وكيل أسامة الرئيسية")
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:121:        val conversationId = _uiState.value.currentConversationId
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:122:        viewModelScope.launch {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:171:            // 4. If presentation was generated, save into Room
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:177:            val toolInfo = if (planResult.routedModelName != null) {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:178:                "${planResult.primaryToolUsed ?: "OpenCode Core"} [${planResult.routedModelName}]"
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:204:            // 7. Voice output if requested
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:217:    fun startVoiceListening() {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:219:            it.copy(agentState = BubbleState.LISTENING, isVoiceInputActive = true)
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:223:                _uiState.update { it.copy(isVoiceInputActive = false) }
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:230:                        isVoiceInputActive = false,
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:238:    fun stopVoiceListening() {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:241:            it.copy(agentState = BubbleState.IDLE, isVoiceInputActive = false)
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:245:    fun interruptSpeech() {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:250:    fun updateVoiceBubble(bubbleId: Int) {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:253:        viewModelScope.launch { repository.saveVoiceSettings(updated) }
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:256:    fun updateVoiceGender(gender: String) {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:259:        viewModelScope.launch { repository.saveVoiceSettings(updated) }
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:262:    fun updateVoiceAccent(accent: String) {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:265:        viewModelScope.launch { repository.saveVoiceSettings(updated) }
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:268:    fun updateVoiceSliders(speed: Float, pitch: Float, volume: Float) {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:275:        viewModelScope.launch { repository.saveVoiceSettings(updated) }
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:280:        viewModelScope.launch {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:286:    fun addMemory(key: String, value: String) {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:287:        viewModelScope.launch {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:288:            repository.addMemory("custom", key, value)
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:293:    fun deleteMemory(id: Long) {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:294:        viewModelScope.launch {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:295:            repository.deleteMemory(id)
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:301:        viewModelScope.launch {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:307:    fun setBrowserUrl(url: String) {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:361:                bulletPointsJson = "Search Tool,PDF Tool,Presentation Studio,Browser Automation"
+=== UI BRANDING/IDE TERMS ===
+app/src/main/AndroidManifest.xml:1:<?xml version="1.0" encoding="utf-8"?>
+app/src/main/AndroidManifest.xml:31:        <provider
+app/src/main/AndroidManifest.xml:32:            android:name="androidx.core.content.FileProvider"
+app/src/main/AndroidManifest.xml:33:            android:authorities="${applicationId}.provider"
+app/src/main/AndroidManifest.xml:37:                android:name="android.support.FILE_PROVIDER_PATHS"
+app/src/main/AndroidManifest.xml:39:        </provider>
+app/src/main/java/com/example/MainActivity.kt:14:import androidx.compose.runtime.CompositionLocalProvider
+app/src/main/java/com/example/MainActivity.kt:29:    override fun onCreate(savedInstanceState: Bundle?) {
+app/src/main/java/com/example/MainActivity.kt:34:                CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
+app/src/main/java/com/example/agent/AgentCore.kt:5:import com.example.agent.opencode.OpenCodeControlSubsystem
+app/src/main/java/com/example/agent/AgentCore.kt:32:    private val openCodeSubsystem = OpenCodeControlSubsystem.getInstance(context)
+app/src/main/java/com/example/agent/AgentCore.kt:51:        // 1. Intelligent Task Routing & Token Optimization via OpenCode Subsystem
+app/src/main/java/com/example/agent/AgentCore.kt:53:        val routingDecision = openCodeSubsystem.routeTaskIntelligently(trimmedInput)
+app/src/main/java/com/example/agent/AgentCore.kt:105:        // 5. Anti-Hallucination Grounded Response via OpenCode Subsystem
+app/src/main/java/com/example/agent/AgentCore.kt:120:        val finalResponseText = openCodeSubsystem.executeTaskWithGrounding(
+app/src/main/java/com/example/agent/AgentCore.kt:189:                params["url"] = urlMatch ?: "https://developer.android.com"
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:1:package com.example.agent.opencode
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:17:/** Metadata and runtime identity taken from the OpenCode/Models.dev provider model contract. */
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:18:data class ProviderModel(
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:19:    val providerId: String,
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:32:data class ProviderDefinition(
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:38:    val models: List<ProviderModel>
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:44:object ProviderRegistry {
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:45:    val providers: List<ProviderDefinition> = listOf(
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:46:        ProviderDefinition(
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:53:                ProviderModel("google", "gemini-2.5-flash", "Gemini 2.5 Flash", 1_048_576, vision = true, reasoning = true, structuredOutput = true)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:56:        ProviderDefinition(
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:63:                ProviderModel("openai", "gpt-4o", "GPT-4o", 128_000, vision = true, reasoning = false, structuredOutput = true)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:66:        ProviderDefinition(
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:73:                ProviderModel("deepseek", "deepseek-chat", "DeepSeek Chat", 128_000, reasoning = false)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:78:    fun model(providerId: String, modelId: String): ProviderModel = providers
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:79:        .firstOrNull { it.id == providerId }?.models?.firstOrNull { it.modelId == modelId }
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:80:        ?: throw ProviderException.InvalidModel(providerId, modelId)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:84:enum class OpenCodeModel(val providerModel: ProviderModel, val contextWindow: String, val costEfficiency: String, val specialtyAr: String) {
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:85:    GEMINI_2_5_FLASH(ProviderRegistry.model("google", "gemini-2.5-flash"), "1M Tokens", "عالية", "الاستجابة الفورية والتحليل متعدد الوسائط"),
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:86:    GPT_4O(ProviderRegistry.model("openai", "gpt-4o"), "128K Tokens", "قياسية", "حل المشكلات والمنطق متعدد الوسائط"),
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:87:    DEEPSEEK_CHAT(ProviderRegistry.model("deepseek", "deepseek-chat"), "128K Tokens", "اقتصادية", "البرمجة والمنطق");
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:89:    val modelId: String get() = providerModel.modelId
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:90:    val displayName: String get() = providerModel.displayName
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:91:    val provider: String get() = providerModel.providerId
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:100:data class OpenCodeEngineConfig(
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:101:    val activeModel: OpenCodeModel = OpenCodeModel.GEMINI_2_5_FLASH,
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:109:data class OpenCodeTaskRoutingDecision(
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:110:    val selectedModel: OpenCodeModel,
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:120:sealed class ProviderException(message: String, cause: Throwable? = null) : IOException(message, cause) {
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:121:    class MissingCredential(val provider: String) : ProviderException("Missing runtime credential for provider: $provider")
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:122:    class InvalidModel(val provider: String, val model: String) : ProviderException("Invalid model $provider/$model")
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:123:    class Http(val status: Int, body: String) : ProviderException("Provider HTTP $status: ${body.take(500)}")
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:124:    class Protocol(message: String) : ProviderException(message)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:127:class OpenCodeControlSubsystem private constructor(private val context: Context) {
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:135:    var config: OpenCodeEngineConfig = OpenCodeEngineConfig(); private set
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:136:    fun updateModel(model: OpenCodeModel) { config = config.copy(activeModel = model) }
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:141:    fun routeTaskIntelligently(userInput: String): OpenCodeTaskRoutingDecision {
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:145:            config.routingStrategy == RoutingStrategy.TOKEN_SAVER -> OpenCodeModel.GEMINI_2_5_FLASH
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:147:            userInput.length < 80 -> OpenCodeModel.GEMINI_2_5_FLASH
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:152:        return OpenCodeTaskRoutingDecision(selected, "اختيار نموذج مسجل في ProviderRegistry وقابل للتشغيل فعليًا", compressed, original, savings)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:159:        targetModel: OpenCodeModel,
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:164:        val provider = ProviderRegistry.providers.first { it.id == targetModel.providerModel.providerId }
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:165:        val key = credential(provider.credentialBuildConfig)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:166:            ?: throw ProviderException.MissingCredential(provider.id)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:172:        return@withContext when (provider.protocol) {
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:173:            Protocol.GEMINI_GENERATIVE_LANGUAGE -> streamGemini(provider, targetModel.providerModel, key, system, prompt, tools, onChunk, onToolCall)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:174:            Protocol.OPENAI_CHAT_COMPLETIONS -> streamOpenAi(provider, targetModel.providerModel, key, messages, tools, onChunk, onToolCall)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:188:    private fun streamGemini(provider: ProviderDefinition, model: ProviderModel, key: String, system: String, prompt: String, tools: List<ToolDefinition>, onChunk: (String) -> Unit, onToolCall: (ToolCallRequest) -> Unit): String {
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:193:        val request = Request.Builder().url("${provider.endpoint}/models/${model.modelId}:streamGenerateContent?alt=sse&key=$key")
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:208:    private fun streamOpenAi(provider: ProviderDefinition, model: ProviderModel, key: String, messages: List<JSONObject>, tools: List<ToolDefinition>, onChunk: (String) -> Unit, onToolCall: (ToolCallRequest) -> Unit): String {
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:211:        val request = Request.Builder().url("${provider.endpoint}/chat/completions").addHeader("Authorization", "Bearer $key").post(root.toString().toRequestBody("application/json; charset=utf-8".toMediaType())).build()
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:225:        var lastError: ProviderException? = null
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:229:                    val source = response.body?.source() ?: throw ProviderException.Protocol("Provider returned an empty body")
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:233:                        val error = ProviderException.Http(response.code, body)
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:246:                            .getOrElse { throw ProviderException.Protocol("Malformed provider SSE event") }
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:250:            } catch (e: ProviderException) {
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:253:                if (attempt == 2) throw ProviderException.Protocol("Provider network failure: ${e.message}")
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:254:                lastError = ProviderException.Protocol("Provider network failure: ${e.message}")
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:258:        throw lastError ?: ProviderException.Protocol("Provider request failed")
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:262:        @Volatile private var INSTANCE: OpenCodeControlSubsystem? = null
+app/src/main/java/com/example/agent/opencode/OpenCodeControlSubsystem.kt:263:        fun getInstance(context: Context): OpenCodeControlSubsystem = INSTANCE ?: synchronized(this) { INSTANCE ?: OpenCodeControlSubsystem(context.applicationContext).also { INSTANCE = it } }
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:4:import com.example.data.local.entity.SlideEntity
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:11:    override val id: String = "tool_search"
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:12:    override val name: String = "البحث المعمق والاستقصاء"
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:13:    override val description: String = "بحث في مصادر متعددة، مقارنة النتائج، واستخراج الأدلة والمراجع الموثقة."
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:14:    override val scope: ToolScope = ToolScope.NETWORK_SEARCH
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:15:    override val requiresUserConfirmation: Boolean = false
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:17:    override suspend fun execute(
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:43:    override val id: String = "tool_browser"
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:44:    override val name: String = "المتصفح الذكي"
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:45:    override val description: String = "فتح الروابط، قراءة المقالات وتلخيص المحتوى الصافي بدون إعلانات أو مشتتات."
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:46:    override val scope: ToolScope = ToolScope.NETWORK_SEARCH
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:47:    override val requiresUserConfirmation: Boolean = false
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:49:    override suspend fun execute(
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:54:        val url = parameters["url"] ?: "https://developer.android.com"
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:66:    override val id: String = "tool_pdf"
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:67:    override val name: String = "مولد الكتب والتقارير PDF"
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:68:    override val description: String = "توليد كتب ووثائق رسمية وتقارير PDF عالية الدقة ومتعددة الصفحات."
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:69:    override val scope: ToolScope = ToolScope.LOCAL_WRITE
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:70:    override val requiresUserConfirmation: Boolean = false
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:72:    override suspend fun execute(
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:144:    override val id: String = "tool_presentation"
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:145:    override val name: String = "استوديو العروض التقديمية الفائقة"
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:146:    override val description: String = "إنشاء عروض تقديمية احترافية تتسع من 5 إلى أكثر من 120 شريحة مصممة بعناية."
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:147:    override val scope: ToolScope = ToolScope.LOCAL_WRITE
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:148:    override val requiresUserConfirmation: Boolean = false
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:150:    override suspend fun execute(
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:158:        val slides = mutableListOf<SlideEntity>()
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:159:        slides.add(
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:160:            SlideEntity(
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:162:                slideNumber = 1,
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:178:            slides.add(
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:179:                SlideEntity(
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:181:                    slideNumber = i,
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:193:            data = "Presentation Created: $count slides",
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:194:            artifacts = slides.map { it.title }
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:200:    override val id: String = "tool_task_planner"
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:201:    override val name: String = "مدبر ومنظم الحياة والمهام"
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:202:    override val description: String = "تنظيم المواعيد، ترتيب الأولويات، وتقسيم الأهداف إلى خطة إنتاجية قابلة للتنفيذ."
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:203:    override val scope: ToolScope = ToolScope.LOCAL_WRITE
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:204:    override val requiresUserConfirmation: Boolean = false
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:206:    override suspend fun execute(
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:229:    override val id: String = "tool_memory"
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:230:    override val name: String = "الذاكرة الانتقائية"
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:231:    override val description: String = "حفظ واسترجاع تفضيلات المستخدم وسياق المهام محلياً وبشكل مشفر."
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:232:    override val scope: ToolScope = ToolScope.LOCAL_WRITE
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:233:    override val requiresUserConfirmation: Boolean = false
+app/src/main/java/com/example/agent/tools/ToolImplementations.kt:235:    override suspend fun execute(
+app/src/main/java/com/example/data/local/AppDatabase.kt:19:        SlideEntity::class,
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:92:    // Presentations & Slides
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:105:    @Query("SELECT * FROM slides WHERE presentationId = :presentationId ORDER BY slideNumber ASC")
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:106:    fun getSlidesForPresentationFlow(presentationId: String): Flow<List<SlideEntity>>
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:108:    @Query("SELECT * FROM slides WHERE presentationId = :presentationId ORDER BY slideNumber ASC")
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:109:    suspend fun getSlidesForPresentation(presentationId: String): List<SlideEntity>
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:112:    suspend fun insertSlide(slide: SlideEntity): Long
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:115:    suspend fun insertSlides(slides: List<SlideEntity>)
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:117:    @Query("DELETE FROM slides WHERE presentationId = :presentationId")
+app/src/main/java/com/example/data/local/dao/AgentDao.kt:118:    suspend fun deleteSlidesForPresentation(presentationId: String)
+app/src/main/java/com/example/data/local/entity/Entities.kt:82:    val slidesCount: Int = 0
+app/src/main/java/com/example/data/local/entity/Entities.kt:85:@Entity(tableName = "slides")
+app/src/main/java/com/example/data/local/entity/Entities.kt:86:data class SlideEntity(
+app/src/main/java/com/example/data/local/entity/Entities.kt:89:    val slideNumber: Int,
+app/src/main/java/com/example/data/repository/AgentRepository.kt:118:    fun getSlidesFlow(presentationId: String): Flow<List<SlideEntity>> =
+app/src/main/java/com/example/data/repository/AgentRepository.kt:119:        agentDao.getSlidesForPresentationFlow(presentationId)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:121:    suspend fun getSlides(presentationId: String): List<SlideEntity> =
+app/src/main/java/com/example/data/repository/AgentRepository.kt:122:        agentDao.getSlidesForPresentation(presentationId)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:124:    suspend fun savePresentationWithSlides(presentation: PresentationEntity, slides: List<SlideEntity>) {
+app/src/main/java/com/example/data/repository/AgentRepository.kt:126:        agentDao.deleteSlidesForPresentation(presentation.id)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:127:        agentDao.insertSlides(slides)
+app/src/main/java/com/example/data/repository/AgentRepository.kt:131:        agentDao.deleteSlidesForPresentation(id)
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:30:class OpenCodeEngine(private val context: Context) {
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:64:                // OpenCode Web Extraction Automation
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:80:                console.log("جارٍ استخراج وتصفية محتوى صفحة الويب عبر OpenCode...");
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:93:                # OpenCode Python Data Analytics
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:102:                print(f"=== تقرير تحليلات البيانات — OpenCode ===")
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:184:                val printContent = extractInsideParens(trimmed, "println")
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:187:                val printContent = extractInsideParens(trimmed, "print")
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:193:            out.appendLine("🚀 [OpenCode Kotlin Engine]")
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:211:                val content = extractInsideParens(trimmed, "print")
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:217:            out.appendLine("🐍 [OpenCode Python Interpreter]")
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:234:                val content = extractInsideParens(trimmed, "console.log")
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:240:            out.appendLine("⚡ [OpenCode V8 JavaScript Runtime]")
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:249:        return "⚙️ [OpenCode Shell Script Engine]\n" +
+app/src/main/java/com/example/engine/OpenCodeEngine.kt:255:    private fun extractInsideParens(text: String, fnName: String): String {
+app/src/main/java/com/example/engine/VoiceHelper.kt:27:    override fun onInit(status: Int) {
+app/src/main/java/com/example/engine/VoiceHelper.kt:38:                override fun onStart(utteranceId: String?) {
+app/src/main/java/com/example/engine/VoiceHelper.kt:42:                override fun onDone(utteranceId: String?) {
+app/src/main/java/com/example/engine/VoiceHelper.kt:46:                override fun onError(utteranceId: String?) {
+app/src/main/java/com/example/engine/VoiceHelper.kt:83:                    override fun onReadyForSpeech(params: Bundle?) {}
+app/src/main/java/com/example/engine/VoiceHelper.kt:84:                    override fun onBeginningOfSpeech() {}
+app/src/main/java/com/example/engine/VoiceHelper.kt:85:                    override fun onRmsChanged(rmsdB: Float) {}
+app/src/main/java/com/example/engine/VoiceHelper.kt:86:                    override fun onBufferReceived(buffer: ByteArray?) {}
+app/src/main/java/com/example/engine/VoiceHelper.kt:87:                    override fun onEndOfSpeech() {}
+app/src/main/java/com/example/engine/VoiceHelper.kt:89:                    override fun onError(error: Int) {
+app/src/main/java/com/example/engine/VoiceHelper.kt:93:                    override fun onResults(results: Bundle?) {
+app/src/main/java/com/example/engine/VoiceHelper.kt:100:                    override fun onPartialResults(partialResults: Bundle?) {}
+app/src/main/java/com/example/engine/VoiceHelper.kt:101:                    override fun onEvent(eventType: Int, params: Bundle?) {}
+app/src/main/java/com/example/ui/navigation/NavComponents.kt:22:    object Presentations : NavItem("presentations", "العروض", Icons.Filled.Slideshow, Icons.Outlined.Slideshow)
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:52:        "Android Docs" to "https://developer.android.com",
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:288:                        Icon(imageVector = Icons.Default.Slideshow, contentDescription = null, tint = ElectricBlue, modifier = Modifier.size(14.dp))
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:334:                    HorizontalDivider(color = MaterialTheme.colorScheme.outline.copy(alpha = 0.2f))
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:360:                            useWideViewPort = true
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:367:                            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:375:                            override fun onPageFinished(view: WebView?, url: String?) {
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:384:                            override fun onReceivedError(
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:395:                            override fun onProgressChanged(view: WebView?, newProgress: Int) {
+app/src/main/java/com/example/ui/screens/BrowserScreen.kt:400:                            override fun onReceivedTitle(view: WebView?, title: String?) {
+app/src/main/java/com/example/ui/screens/FilesScreen.kt:24:import androidx.core.content.FileProvider
+app/src/main/java/com/example/ui/screens/FilesScreen.kt:167:            val uri = FileProvider.getUriForFile(
+app/src/main/java/com/example/ui/screens/FilesScreen.kt:169:                "${context.packageName}.provider",
+app/src/main/java/com/example/ui/screens/FilesScreen.kt:184:            val uri = FileProvider.getUriForFile(
+app/src/main/java/com/example/ui/screens/FilesScreen.kt:186:                "${context.packageName}.provider",
+app/src/main/java/com/example/ui/screens/HomeScreen.kt:225:                    icon = Icons.Default.Slideshow,
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:35:import com.example.engine.OpenCodeEngine
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:43:fun OpenCodeScreen(
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:48:    val openCodeEngine = remember { OpenCodeEngine(context) }
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:51:    var codeContent by remember { mutableStateOf(openCodeEngine.templates.first().code) }
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:67:            val res = openCodeEngine.execute(codeContent, selectedLanguage)
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:90:                        imageVector = Icons.Default.Terminal,
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:97:                        text = "بيئة OpenCode البرمجية",
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:151:                            val matchTemplate = openCodeEngine.templates.find { it.language == id }
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:175:            items(openCodeEngine.templates) { template ->
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:189:        // 4. Code Editor View
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:276:        // 5. Terminal Console Output
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:298:                            text = "وحدة الإخراج (Terminal Console)",
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:331:                HorizontalDivider(color = Color(0xFF1E293B))
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:342:                            text = "$ OpenCode ready. اضغط على \"تشغيل\" لتنفيذ الكود والحصول على المخرجات مباشرة.",
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:349:                            text = "$ جارٍ تجميع وتشغيل البرنامج النصي عبر بيئة OpenCode...",
+app/src/main/java/com/example/ui/screens/OpenCodeScreen.kt:411:                            viewModel.sendUserMessage("اكتب كود برمجياً بلغة $selectedLanguage لتنفيذ: $aiPromptText واشرح طريقة تشغيله في OpenCode")
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:22:import com.example.data.local.entity.SlideEntity
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:35:    var currentSlideIndex by remember { mutableStateOf(0) }
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:38:    var newSlideCount by remember { mutableStateOf(8) }
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:95:                            currentSlideIndex = 0
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:103:        // Active Slide Deck Viewer
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:115:                    // Slide Header
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:126:                                text = "شريحة ${currentSlideIndex + 1} من ${pres.slidesCount}",
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:149:                    // Slide Main Title & Topic
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:151:                        text = if (currentSlideIndex == 0) pres.title else "المحور ${currentSlideIndex + 1}: ${pres.topic}",
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:202:                                if (currentSlideIndex > 0) currentSlideIndex--
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:204:                            enabled = currentSlideIndex > 0
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:211:                                if (currentSlideIndex < pres.slidesCount - 1) currentSlideIndex++
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:213:                            enabled = currentSlideIndex < pres.slidesCount - 1
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:247:                        text = "عدد الشرائح: $newSlideCount شريحة ${if (newSlideCount >= 100) "(عرض تقديمي ضخم ⚡)" else ""}",
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:249:                        color = if (newSlideCount >= 100) CyanNeon else MaterialTheme.colorScheme.onSurface
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:252:                    Slider(
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:253:                        value = newSlideCount.toFloat(),
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:254:                        onValueChange = { newSlideCount = it.toInt() },
+app/src/main/java/com/example/ui/screens/PresentationsScreen.kt:263:                            viewModel.createPresentation(newTopic, newSlideCount)
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:26:import com.example.agent.opencode.OpenCodeControlSubsystem
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:27:import com.example.agent.opencode.OpenCodeModel
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:28:import com.example.agent.opencode.RoutingStrategy
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:45:    val openCodeSubsystem = remember { OpenCodeControlSubsystem.getInstance(context) }
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:46:    var engineConfig by remember { mutableStateOf(openCodeSubsystem.config) }
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:70:                text = "إدارة محرك OpenCode، النماذج، كرات المحادثة الـ 19، وضغط التوكن",
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:76:        // 2. OpenCode Master Control Dashboard & Model Selector
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:94:                                text = "لوحة تحكم محرك أوبن كود (OpenCode Control Panel)",
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:114:                        text = "يعمل OpenCode كمحرك وسيرفر محلي مدمج في الخلفية (Second Brain) لإدارة النماذج والوكلاء، توجيه المهام بذكاء، وتقليل استهلاك التوكن، وتوليد العروض الضخمة (100+ شريحة) والمستندات بدقة وبدون هلوسة.",
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:119:                    Divider(color = MaterialTheme.colorScheme.outline.copy(alpha = 0.2f))
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:148:                                    text = "${engineConfig.activeModel.provider} • نافذة السياق: ${engineConfig.activeModel.contextWindow}",
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:215:                                openCodeSubsystem.toggleTokenCompression(it)
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:216:                                engineConfig = openCodeSubsystem.config
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:240:                                openCodeSubsystem.toggleAntiHallucination(it)
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:241:                                engineConfig = openCodeSubsystem.config
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:361:                // Speed Slider
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:366:                Slider(
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:369:                        viewModel.updateVoiceSliders(it, uiState.voiceSettings.pitch, uiState.voiceSettings.volume)
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:374:                // Pitch Slider
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:379:                Slider(
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:382:                        viewModel.updateVoiceSliders(uiState.voiceSettings.speechRate, it, uiState.voiceSettings.volume)
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:529:        // 8. Developer Identity & About Section
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:539:                    text = "أنا وكيل أسامة، قام بتطويري وهندستي المهندس أسامة محمد علي سعيد العُمري كوكيل شخصي ومساعد ذكي متكامل وعقل ثانٍ، مع دمج محرك وسيرفر OpenCode المحلي كمدبر خفي للمهام والتخطيط والتنفيذ وصناعة العروض والمستندات.",
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:545:                    text = "المحرك المدمج: OpenCode Local Architecture Subsystem • الإصدار: 2.0.0",
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:553:    // Modal: Select Real OpenCode Model
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:557:            title = { Text("اختيار نموذج الذكاء الاصطناعي (OpenCode Models)") },
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:563:                    items(OpenCodeModel.values()) { model ->
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:567:                                openCodeSubsystem.updateModel(model)
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:568:                                engineConfig = openCodeSubsystem.config
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:590:                                        text = model.provider,
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:628:                                openCodeSubsystem.updateRoutingStrategy(strategy)
+app/src/main/java/com/example/ui/screens/SettingsScreen.kt:629:                                engineConfig = openCodeSubsystem.config
+app/src/main/java/com/example/ui/theme/Type.kt:20:    /* Other default text styles to override
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:22:    val browserUrl: String = "https://developer.android.com",
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:178:                "${planResult.primaryToolUsed ?: "OpenCode Core"} [${planResult.routedModelName}]"
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:268:    fun updateVoiceSliders(speed: Float, pitch: Float, volume: Float) {
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:325:            slidesCount = artifactTitles.size.coerceAtLeast(4)
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:327:        val slides = artifactTitles.mapIndexed { index, title ->
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:328:            SlideEntity(
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:330:                slideNumber = index + 1,
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:337:        repository.savePresentationWithSlides(presentation, slides)
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:346:            slidesCount = 5
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:348:        val slides = listOf(
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:349:            SlideEntity(
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:351:                slideNumber = 1,
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:356:            SlideEntity(
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:358:                slideNumber = 2,
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:363:            SlideEntity(
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:365:                slideNumber = 3,
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:370:            SlideEntity(
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:372:                slideNumber = 4,
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:377:            SlideEntity(
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:379:                slideNumber = 5,
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:385:        repository.savePresentationWithSlides(presentation, slides)
+app/src/main/java/com/example/viewmodel/OsamahAgentViewModel.kt:388:    override fun onCleared() {
+app/src/main/res/drawable/ic_launcher_background.xml:1:<?xml version="1.0" encoding="utf-8"?>
+app/src/main/res/drawable/ic_launcher_foreground.xml:1:<?xml version="1.0" encoding="utf-8"?>
+app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml:1:<?xml version="1.0" encoding="utf-8"?>
+app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml:1:<?xml version="1.0" encoding="utf-8"?>
+app/src/main/res/values/colors.xml:1:<?xml version="1.0" encoding="utf-8"?>
+app/src/main/res/values/strings.xml:47:    <string name="presentation_slides_count">عدد الشرائح</string>
+app/src/main/res/values/strings.xml:54:    <string name="about_developer_info">تم تطوير هذا الوكيل بواسطة المهندس أسامة محمد علي سعيد العُمري كوكيل شخصي عملي متعدد القدرات والأدوات.</string>
+app/src/main/res/values/themes.xml:1:<?xml version="1.0" encoding="utf-8"?>
+app/src/main/res/xml/backup_rules.xml:1:<?xml version="1.0" encoding="utf-8"?><!--
+app/src/main/res/xml/backup_rules.xml:3:   See https://developer.android.com/guide/topics/data/autobackup
+app/src/main/res/xml/backup_rules.xml:6:   See https://developer.android.com/about/versions/12/backup-restore
+app/src/main/res/xml/data_extraction_rules.xml:1:<?xml version="1.0" encoding="utf-8"?><!--
+app/src/main/res/xml/data_extraction_rules.xml:3:   See https://developer.android.com/about/versions/12/backup-restore#xml-changes
+app/src/main/res/xml/file_paths.xml:1:<?xml version="1.0" encoding="utf-8"?>
+=== RESOURCES/PERMISSIONS ===
+app/src/main/res/drawable/ic_launcher_background.xml
+app/src/main/res/drawable/ic_launcher_foreground.xml
+app/src/main/res/drawable/ic_osamah_agent_logo_1788139296791.jpg
+app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+app/src/main/res/mipmap-hdpi/ic_launcher.webp
+app/src/main/res/mipmap-hdpi/ic_launcher_round.webp
+app/src/main/res/mipmap-mdpi/ic_launcher.webp
+app/src/main/res/mipmap-mdpi/ic_launcher_round.webp
+app/src/main/res/mipmap-xhdpi/ic_launcher.webp
+app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp
+app/src/main/res/mipmap-xxhdpi/ic_launcher.webp
+app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp
+app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp
+app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp
+app/src/main/res/values/colors.xml
+app/src/main/res/values/strings.xml
+app/src/main/res/values/themes.xml
+app/src/main/res/xml/backup_rules.xml
+app/src/main/res/xml/data_extraction_rules.xml
+app/src/main/res/xml/file_paths.xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.MyApplication">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.MyApplication">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>
+=== BUILD/CONFIG ===
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+  alias(libs.plugins.android.application) apply false
+  alias(libs.plugins.kotlin.compose) apply false
+  alias(libs.plugins.google.devtools.ksp) apply false
+  alias(libs.plugins.roborazzi) apply false
+  alias(libs.plugins.secrets) apply false
+  alias(libs.plugins.google.services) apply false
+}
+import com.google.gms.googleservices.GoogleServicesPlugin.MissingGoogleServicesStrategy
+
+plugins {
+  alias(libs.plugins.android.application)
+  alias(libs.plugins.kotlin.compose)
+  alias(libs.plugins.google.devtools.ksp)
+  alias(libs.plugins.roborazzi)
+  alias(libs.plugins.secrets)
+  alias(libs.plugins.google.services)
+}
+
+android {
+  namespace = "com.example"
+  compileSdk { version = release(36) { minorApiLevel = 1 } }
+
+  defaultConfig {
+    applicationId = "com.aistudio.osamahagent.vtrpxq"
+    minSdk = 24
+    targetSdk = 36
+    versionCode = 1
+    versionName = "1.0"
+
+    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  signingConfigs {
+    create("release") {
+      val keystorePath = System.getenv("KEYSTORE_PATH") ?: "${rootDir}/my-upload-key.jks"
+      storeFile = file(keystorePath)
+      storePassword = System.getenv("STORE_PASSWORD")
+      keyAlias = "upload"
+      keyPassword = System.getenv("KEY_PASSWORD")
+    }
+    create("debugConfig") {
+      storeFile = file("${rootDir}/debug.keystore")
+      storePassword = "android"
+      keyAlias = "androiddebugkey"
+      keyPassword = "android"
+    }
+  }
+
+  buildTypes {
+    release {
+      isCrunchPngs = false
+      isMinifyEnabled = false
+      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+      signingConfig = signingConfigs.getByName("release")
+    }
+    debug { signingConfig = signingConfigs.getByName("debugConfig") }
+  }
+  compileOptions {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+  }
+  buildFeatures {
+    compose = true
+    buildConfig = true
+  }
+  testOptions { unitTests { isIncludeAndroidResources = true } }
+  dependenciesInfo {
+    includeInApk = false
+    includeInBundle = true
+  }
+}
+
+// Configure the Secrets Gradle Plugin to use .env and .env.example files
+// to match the convention used in Web projects.
+secrets {
+  propertiesFileName = ".env"
+  defaultPropertiesFileName = ".env.example"
+  ignoreList.add("FIREBASE_APPCHECK_DEBUG_TOKEN")
+}
+
+googleServices { missingGoogleServicesStrategy = MissingGoogleServicesStrategy.WARN }
+
+// Some unused dependencies are commented out below instead of being removed.
+// This makes it easy to add them back in the future if needed.
+dependencies {
+  implementation(platform(libs.androidx.compose.bom))
+  implementation(platform(libs.firebase.bom))
+  // implementation(libs.accompanist.permissions)
+  implementation(libs.androidx.activity.compose)
+  // implementation(libs.androidx.camera.camera2)
+  // implementation(libs.androidx.camera.core)
+  // implementation(libs.androidx.camera.lifecycle)
+  // implementation(libs.androidx.camera.view)
+  implementation(libs.androidx.compose.material.icons.core)
+  implementation(libs.androidx.compose.material.icons.extended)
+  implementation(libs.androidx.compose.material3)
+  implementation(libs.androidx.compose.ui)
+  implementation(libs.androidx.compose.ui.graphics)
+  implementation(libs.androidx.compose.ui.tooling.preview)
+  implementation(libs.androidx.core.ktx)
+  // implementation(libs.androidx.datastore.preferences)
+  implementation(libs.androidx.lifecycle.runtime.compose)
+  implementation(libs.androidx.lifecycle.runtime.ktx)
+  implementation(libs.androidx.lifecycle.viewmodel.compose)
+  implementation(libs.androidx.navigation.compose)
+  implementation(libs.androidx.room.ktx)
+  implementation(libs.androidx.room.runtime)
+  implementation(libs.coil.compose)
+  implementation(libs.converter.moshi)
+  implementation(libs.firebase.ai)
+  // Uncomment to use Firestore:
+  // implementation(libs.firebase.firestore)
+
+  // Uncomment ALL FOUR of the following dependencies together to use Firebase Auth and Google
+  // Sign-In via Credential Manager:
+  // implementation(libs.firebase.auth)
+  // implementation(libs.androidx.credentials)
+  // implementation(libs.androidx.credentials.play.services)
+  // implementation(libs.googleid)
+  implementation(libs.firebase.appcheck.recaptcha)
+  implementation(libs.firebase.appcheck.debug)
+  implementation(libs.kotlinx.coroutines.android)
+  implementation(libs.kotlinx.coroutines.core)
+  implementation(libs.logging.interceptor)
+  implementation(libs.moshi.kotlin)
+  implementation(libs.okhttp)
+  // implementation(libs.play.services.location)
+  implementation(libs.retrofit)
+  testImplementation(libs.androidx.compose.ui.test.junit4)
+  testImplementation(libs.androidx.core)
+  testImplementation(libs.androidx.junit)
+  testImplementation(libs.junit)
+  testImplementation(libs.kotlinx.coroutines.test)
+  testImplementation(libs.robolectric)
+  testImplementation(libs.roborazzi)
+  testImplementation(libs.roborazzi.compose)
+  testImplementation(libs.roborazzi.junit.rule)
+  androidTestImplementation(platform(libs.androidx.compose.bom))
+  androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+  androidTestImplementation(libs.androidx.espresso.core)
+  androidTestImplementation(libs.androidx.junit)
+  androidTestImplementation(libs.androidx.runner)
+  debugImplementation(libs.androidx.compose.ui.test.manifest)
+  debugImplementation(libs.androidx.compose.ui.tooling)
+  "ksp"(libs.androidx.room.compiler)
+  "ksp"(libs.moshi.kotlin.codegen)
+}
+pluginManagement {
+  repositories {
+    google {
+      content {
+        includeGroupByRegex("com\\.android.*")
+        includeGroupByRegex("com\\.google.*")
+        includeGroupByRegex("androidx.*")
+      }
+    }
+    mavenCentral()
+    gradlePluginPortal()
+  }
+}
+
+plugins { id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0" }
+
+dependencyResolutionManagement {
+  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+  repositories {
+    google()
+    mavenCentral()
+  }
+}
+
+rootProject.name = "Osamah Agent"
+
+include(":app")
+# GEMINI_API_KEY: Required for Gemini AI API calls.
+# This is a placeholder key.
+# AI Studio automatically injects this at runtime from user secrets.
+# Users configure this via the Secrets panel in the AI Studio UI.
+# IMPORTANT: Uncomment the line below if your app uses the Gemini API.
+# If left commented out, the key will NOT be packaged in the APK.
+GEMINI_API_KEY=MY_GEMINI_API_KEY
+# Optional provider credentials, injected only at build/runtime; never commit real values.
+OPENAI_API_KEY=MY_OPENAI_API_KEY
+DEEPSEEK_API_KEY=MY_DEEPSEEK_API_KEY

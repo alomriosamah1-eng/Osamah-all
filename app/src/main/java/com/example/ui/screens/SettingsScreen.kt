@@ -67,13 +67,13 @@ fun SettingsScreen(
                 color = MaterialTheme.colorScheme.onBackground
             )
             Text(
-                text = "إدارة محرك OpenCode، النماذج، كرات المحادثة الـ 19، وضغط التوكن",
+                text = "إدارة الوكيل، النماذج، الصوت، الذاكرة، والخصوصية",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
 
-        // 2. OpenCode Master Control Dashboard & Model Selector
+        // 2. Models and connections
         item {
             GlassCard(modifier = Modifier.fillMaxWidth()) {
                 Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -91,7 +91,7 @@ fun SettingsScreen(
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
-                                text = "لوحة تحكم محرك أوبن كود (OpenCode Control Panel)",
+                                text = "النماذج والاتصالات",
                                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
                                 color = MaterialTheme.colorScheme.onSurface
                             )
@@ -102,7 +102,7 @@ fun SettingsScreen(
                             color = Color(0x3310B981)
                         ) {
                             Text(
-                                text = "Local Core (127.0.0.1)",
+                                text = "اتصال الوكيل",
                                 color = Color(0xFF10B981),
                                 style = MaterialTheme.typography.labelSmall,
                                 modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
@@ -111,7 +111,7 @@ fun SettingsScreen(
                     }
 
                     Text(
-                        text = "يعمل OpenCode كمحرك وسيرفر محلي مدمج في الخلفية (Second Brain) لإدارة النماذج والوكلاء، توجيه المهام بذكاء، وتقليل استهلاك التوكن، وتوليد العروض الضخمة (100+ شريحة) والمستندات بدقة وبدون هلوسة.",
+                        text = "يتحقق الوكيل من الاتصال بالنماذج المتاحة، ويختار المسار الأنسب للطلب، ويدير السياق والمهام محلياً مع الحفاظ على بياناتك.",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -536,13 +536,13 @@ fun SettingsScreen(
                 )
                 Spacer(modifier = Modifier.height(6.dp))
                 Text(
-                    text = "أنا وكيل أسامة، قام بتطويري وهندستي المهندس أسامة محمد علي سعيد العُمري كوكيل شخصي ومساعد ذكي متكامل وعقل ثانٍ، مع دمج محرك وسيرفر OpenCode المحلي كمدبر خفي للمهام والتخطيط والتنفيذ وصناعة العروض والمستندات.",
+                    text = "أنا وكيل أسامة، مساعدك الشخصي الذكي للتفكير والبحث والتنفيذ وإدارة المعرفة والمهام والمحادثة، مع احترام خصوصيتك وإتاحة التحكم في بياناتك.",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurface
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = "المحرك المدمج: OpenCode Local Architecture Subsystem • الإصدار: 2.0.0",
+                    text = "البنية المدمجة: Agent Infrastructure • الإصدار: 2.0.0",
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -550,11 +550,11 @@ fun SettingsScreen(
         }
     }
 
-    // Modal: Select Real OpenCode Model
+    // Modal: Select available model
     if (showModelSelectorDialog) {
         AlertDialog(
             onDismissRequest = { showModelSelectorDialog = false },
-            title = { Text("اختيار نموذج الذكاء الاصطناعي (OpenCode Models)") },
+            title = { Text("اختيار نموذج الذكاء الاصطناعي") },
             text = {
                 LazyColumn(
                     verticalArrangement = Arrangement.spacedBy(8.dp),
