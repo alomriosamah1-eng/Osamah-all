@@ -57,3 +57,19 @@
 [2]: https://github.com/anomalyco/opencode/blob/dev/packages/opencode/src/provider/provider.ts "OpenCode provider implementation"
 [3]: https://github.com/anomalyco/opencode/blob/dev/packages/opencode/src/provider/auth.ts "OpenCode authentication implementation"
 [4]: https://models.dev/api.json "Models.dev provider and model registry"
+
+## Master Prompt Validation Update
+
+تم كذلك إزالة شاشة بيئة البرمجة ومحرك التنفيذ المحاكى غير المستخدم، وتنظيف نصوص واجهة الإعدادات من اسم OpenCode وLocal Core، واستبدال ظهورها الداخلي للمستخدم بعبارات مرتبطة بالوكيل والنماذج والاتصالات. أضيفت آلية fallback تلقائية بين المزودين الذين يملكون اعتمادًا صالحًا، وأصبح محرك الصوت يختار العربية أو الإنجليزية بحسب النص مع استخدام SpeechRecognizer وTextToSpeech الحقيقيين في Android.
+
+## Android Build Update
+
+تم تثبيت Android SDK وGradle 9.3.1 وOpenJDK 21، وإضافة Gradle Wrapper إلى المشروع. بعد إنشاء debug keystore محليًا، نجح الأمر `./gradlew clean assembleDebug`، ونتج الملف `app/build/outputs/apk/debug/app-debug.apk` بحجم يقارب 23 MB.
+
+نجح تجميع اختبارات Kotlin، لكن `testDebugUnitTest` لم يكتمل بنجاح لأن اختبار Robolectric القديم `ExampleRobolectricTest` حاول جلب Maven artifact أثناء التشغيل وفشل في `MavenArtifactFetcher`؛ هذا فشل في اختبار البيئة/الجلب وليس فشل compile في التطبيق. تم تحديث اختبار اللقطة ليستخدم `OsamahAgentApp` الحالي بدل رموز القالب القديمة.
+
+## Emulator Update
+
+تم تثبيت Emulator وإنشاء AVDs لـ Android 36 وAndroid 35 وAndroid 30. المحاكي المضيف لا يملك `/dev/kvm`، لذلك فشل x86_64 في وضع التسريع، أما التشغيل البرمجي فقد ظهر عبر ADB لكنه لم يطلق Android Package Manager/Activity Manager بشكل مكتمل، وبقي تثبيت APK غير ممكن مع الخطأ `Can't find service: package`. تم توثيق ذلك كقيد بيئي صريح، لا كنجاح تشغيل وهمي.
+
+آخر commit منشور: `0ef5e5a`.

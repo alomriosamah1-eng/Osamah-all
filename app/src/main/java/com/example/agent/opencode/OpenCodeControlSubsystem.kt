@@ -161,18 +161,35 @@ class OpenCodeControlSubsystem private constructor(private val context: Context)
         onChunk: (String) -> Unit = {},
         onToolCall: (ToolCallRequest) -> Unit = {}
     ): String = withContext(Dispatchers.IO) {
-        val provider = ProviderRegistry.providers.first { it.id == targetModel.providerModel.providerId }
-        val key = credential(provider.credentialBuildConfig)
-            ?: throw ProviderException.MissingCredential(provider.id)
+        val candidates = if (config.routingStrategy == RoutingStrategy.INTELLIGENT_AUTO) {
+            listOf(targetModel) + OpenCodeModel.values().filter { it != targetModel }
+        } else {
+            listOf(targetModel)
+        }
         val system = if (config.antiHallucinationEnabled) "$systemInstruction\n\nلا تختلق معلومات، واذكر حدود المعرفة بوضوح." else systemInstruction
         val messages = listOf(
             JSONObject().put("role", "system").put("content", "$system\n[USER_CONTEXT]\n$userContext"),
             JSONObject().put("role", "user").put("content", prompt)
         )
-        return@withContext when (provider.protocol) {
-            Protocol.GEMINI_GENERATIVE_LANGUAGE -> streamGemini(provider, targetModel.providerModel, key, system, prompt, tools, onChunk, onToolCall)
-            Protocol.OPENAI_CHAT_COMPLETIONS -> streamOpenAi(provider, targetModel.providerModel, key, messages, tools, onChunk, onToolCall)
+        var lastError: ProviderException? = null
+        for (candidate in candidates) {
+            val provider = ProviderRegistry.providers.first { it.id == candidate.providerModel.providerId }
+            val key = credential(provider.credentialBuildConfig)
+            if (key == null) {
+                lastError = ProviderException.MissingCredential(provider.id)
+                continue
+            }
+            try {
+                return@withContext when (provider.protocol) {
+                    Protocol.GEMINI_GENERATIVE_LANGUAGE -> streamGemini(provider, candidate.providerModel, key, system, prompt, tools, onChunk, onToolCall)
+                    Protocol.OPENAI_CHAT_COMPLETIONS -> streamOpenAi(provider, candidate.providerModel, key, messages, tools, onChunk, onToolCall)
+                }
+            } catch (error: ProviderException) {
+                lastError = error
+                if (config.routingStrategy != RoutingStrategy.INTELLIGENT_AUTO) throw error
+            }
         }
+        throw lastError ?: ProviderException.Protocol("No configured provider is available")
     }
 
     private fun credential(name: String): String? = try {
