@@ -121,7 +121,8 @@ class AgentCore(private val context: Context) {
             prompt = promptForModel,
             systemInstruction = systemInstruction,
             userContext = userContext,
-            targetModel = routingDecision.selectedModel
+            targetModel = routingDecision.selectedModel,
+            onChunk = { chunk -> onProgressUpdate(chunk) }
         )
 
         steps.add(AgentExecutionStep(3, "التحقق والتوثيق النهائي", "AntiHallucinationVerifier", "COMPLETED", "تم التحقق من دقة وموثوقية الرد والمخرجات"))
