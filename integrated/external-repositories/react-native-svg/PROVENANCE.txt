@@ -1,0 +1,5 @@
+name=react-native-svg
+source_remote=https://github.com/software-mansion/react-native-svg.git
+branch=main
+commit=b76a21ea7dd2587398c52dad7e53f339add8d2ec
+license=LICENSE

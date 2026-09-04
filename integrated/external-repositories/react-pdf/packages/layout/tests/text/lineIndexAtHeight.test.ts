@@ -1,0 +1,106 @@
+import { describe, expect, test } from 'vitest';
+
+import lineIndexAtHeight from '../../src/text/lineIndexAtHeight';
+import { SafeTextNode } from '../../src/types';
+
+const TEST_LINES = Array.from({ length: 10 }, (_, index) => ({
+  box: { y: index * 25, height: 25 },
+}));
+
+describe('text lineIndexAtHeight', () => {
+  test('Should return 0 if no lines present', () => {
+    const node: SafeTextNode = {
+      type: 'TEXT',
+      props: {},
+      style: {},
+      wasSplit: false,
+    };
+    const result = lineIndexAtHeight(node, 5);
+
+    expect(result).toBe(0);
+  });
+
+  test('Should return 0 for height lower than first line', () => {
+    const node: SafeTextNode = {
+      wasSplit: false,
+      type: 'TEXT',
+      props: {},
+      style: {},
+      lines: TEST_LINES,
+    };
+
+    const result = lineIndexAtHeight(node, 10);
+
+    expect(result).toBe(0);
+  });
+
+  test('Should return 1 for height higher than first line', () => {
+    const node: SafeTextNode = {
+      wasSplit: false,
+      type: 'TEXT',
+      props: {},
+      style: {},
+      lines: TEST_LINES,
+    };
+
+    const result = lineIndexAtHeight(node, 30);
+
+    expect(result).toBe(1);
+  });
+
+  test('Should return correct line index for intermediate line', () => {
+    const node: SafeTextNode = {
+      wasSplit: false,
+      type: 'TEXT',
+      props: {},
+      style: {},
+      lines: TEST_LINES,
+    };
+
+    const result = lineIndexAtHeight(node, 85);
+
+    expect(result).toBe(3);
+  });
+
+  test('Should return penultimate line index for height lower than last line', () => {
+    const node: SafeTextNode = {
+      wasSplit: false,
+      type: 'TEXT',
+      props: {},
+      style: {},
+      lines: TEST_LINES,
+    };
+
+    const result = lineIndexAtHeight(node, 230);
+
+    expect(result).toBe(9);
+  });
+
+  test('Should return correct line index for last line', () => {
+    const node: SafeTextNode = {
+      wasSplit: false,
+      type: 'TEXT',
+      props: {},
+      style: {},
+      lines: TEST_LINES,
+    };
+
+    const result = lineIndexAtHeight(node, 250);
+
+    expect(result).toBe(10);
+  });
+
+  test('Should return correct line index for height higher than last line', () => {
+    const node: SafeTextNode = {
+      wasSplit: false,
+      type: 'TEXT',
+      props: {},
+      style: {},
+      lines: TEST_LINES,
+    };
+
+    const result = lineIndexAtHeight(node, 300);
+
+    expect(result).toBe(10);
+  });
+});

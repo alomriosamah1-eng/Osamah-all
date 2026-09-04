@@ -1,0 +1,83 @@
+import * as P from '@react-pdf/primitives';
+
+import { PageNode, SafePageNode } from './page';
+import { YogaInstance } from './base';
+import { SafeStyle, StyleProp } from '@react-pdf/stylesheet';
+
+export type PDFVersion = '1.3' | '1.4' | '1.5' | '1.6' | '1.7' | '1.7ext3';
+
+export type PDFConformance =
+  | 'PDF/A-1'
+  | 'PDF/A-1b'
+  | 'PDF/A-2'
+  | 'PDF/A-2b'
+  | 'PDF/A-3'
+  | 'PDF/A-3b';
+
+export type PageLayout =
+  | 'singlePage'
+  | 'oneColumn'
+  | 'twoColumnLeft'
+  | 'twoColumnRight'
+  | 'twoPageLeft'
+  | 'twoPageRight';
+
+export type PageMode =
+  | 'useNone'
+  | 'useOutlines'
+  | 'useThumbs'
+  | 'fullScreen'
+  | 'useOC'
+  | 'useAttachments';
+
+export interface OnRenderProps {
+  blob?: Blob;
+}
+
+export type Permissions = {
+  printing?: 'lowResolution' | 'highResolution';
+  modifying?: boolean;
+  copying?: boolean;
+  annotating?: boolean;
+  fillingForms?: boolean;
+  contentAccessibility?: boolean;
+  documentAssembly?: boolean;
+};
+
+export type DocumentProps = {
+  bookmark?: never;
+  title?: string;
+  author?: string;
+  subject?: string;
+  creator?: string;
+  keywords?: string;
+  producer?: string;
+  language?: string;
+  creationDate?: Date;
+  modificationDate?: Date;
+  pdfVersion?: PDFVersion;
+  conformance?: PDFConformance;
+  pageMode?: PageMode;
+  pageLayout?: PageLayout;
+  ownerPassword?: string;
+  userPassword?: string;
+  permissions?: Permissions;
+  onRender?: (props: OnRenderProps) => any;
+};
+
+export type DocumentNode = {
+  type: typeof P.Document;
+  props: DocumentProps;
+  box?: never;
+  origin?: never;
+  style?: StyleProp;
+  yoga?: YogaInstance;
+  yogaNode?: never;
+  children: PageNode[];
+};
+
+export type SafeDocumentNode = Omit<DocumentNode, 'style' | 'children'> & {
+  style: SafeStyle;
+  wasSplit: boolean;
+  children: SafePageNode[];
+};

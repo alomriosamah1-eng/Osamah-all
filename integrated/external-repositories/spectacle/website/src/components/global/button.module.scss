@@ -1,0 +1,42 @@
+@import '../../css/variables.scss';
+
+.button {
+  background: var(--oss-button-light);
+  transition: all 0.3s ease-in-out;
+  border-radius: var(--oss-border-radius);
+  color: var(--oss-text-dark);
+  display: block;
+  font-size: $font-sizes-link;
+  height: $line-heights-button;
+  letter-spacing: $letter-spacing-lg;
+  line-height: $line-heights-button;
+  margin: $spacing-lg auto $spacing-sm;
+  max-width: $sizing-lg;
+  min-width: $sizing-sm;
+  text-align: center;
+  text-transform: uppercase;
+  width: auto;
+  padding-left: $spacing-xs;
+  padding-right: $spacing-xs;
+  font-weight: $font-weights-link;
+
+  &:hover {
+    background: var(--oss-button-light-hover);
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+
+  &.noMargin {
+    margin: 0;
+  }
+
+  &.light {
+    color: var(--oss-text-light);
+
+    &:hover {
+      background: var(--oss-button-light-hover);
+    }
+  }
+}

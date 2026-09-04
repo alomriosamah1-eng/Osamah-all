@@ -1,0 +1,5 @@
+name=main
+source_remote=https://github.com/alomriosamah1-eng/osamah-agent-app.git
+branch=main
+commit=75902d013e331dadb2a895e4df2d067ed723ae71
+license=LICENSE

@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "Osamah Agent",
+    "slug": "osamah-agent",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "scheme": "osamahagent",
+    "plugins": [
+      "@react-native-voice/voice",
+      "expo-asset",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "يسمح الوصول إلى الميكروفون بتسجيل أوامرك الصوتية لوكيل أسامة.",
+          "recordAudioAndroid": true
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#0A0E17",
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain"
+        }
+      ]
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.aistudio.osamahagent.vtrpxq",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#0A0E17",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}

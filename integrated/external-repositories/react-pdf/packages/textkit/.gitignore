@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+dist
+*.pdf
+*.ttf
+!tests/assets/*.ttf
+lerna-debug.log
+lib

@@ -1,0 +1,28 @@
+# Implementation Status
+
+- Scope exception: CV-Maker and MindMap repositories ignored by explicit user instruction; no repository replacement used.
+- Repositories: 6 verified; LiveKit and QR canonical repositories additionally cloned after official GitHub rename redirects.
+- Baseline dependency install: PASS (`npm ci --no-audit --no-fund`, 680 packages added).
+- QR dependency integration: PASS (`react-native-qrcode-svg@6.3.22` added to package.json/package-lock.json; 22 packages added).
+- TypeScript validation after every implementation step: PASS (`npm run typecheck`).
+
+## Implemented
+
+- `src/domain/toolContracts.ts`: normalized tool context and outcome contracts.
+- `src/agent/ToolRegistry.ts`: duplicate-safe registry and legacy adapter.
+- `src/agent/AgentCore.ts`: dispatch through registry; routing for QR, resume, voice, and mind-map intents.
+- `src/agent/capabilityTools.ts`: QR/SVG, resume-data, structured mind-map, and LiveKit boundary adapters.
+- `src/agent/tools.ts`: legacy tools remain registered through the same registry.
+- `src/data/db.ts`: `artifacts` table and operational indexes.
+- `package.json` / `package-lock.json`: QR package added.
+
+## Not yet production-ready
+
+- QR visual screen and Android rendering smoke test.
+- LiveKit native Dev Client build and real server token flow.
+- React PDF adapter validation on the selected runtime.
+- Spectacle rendering/export validation on Android/web boundary.
+- Resume PDF template and mind-map visual renderer.
+- Integration/E2E tests and APK build.
+
+The current status is therefore **capability integration at the application/agent contract layer**, not a claim that every visual/native flow is production-complete.

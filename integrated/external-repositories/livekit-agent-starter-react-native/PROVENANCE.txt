@@ -1,0 +1,5 @@
+name=livekit-agent-starter-react-native
+source_remote=https://github.com/livekit-examples/agent-starter-react-native.git
+branch=main
+commit=0438f5d2270ca564fcd81fc52febf103eb5a4e34
+license=LICENSE

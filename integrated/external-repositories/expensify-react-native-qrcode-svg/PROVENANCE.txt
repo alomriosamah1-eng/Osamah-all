@@ -1,0 +1,5 @@
+name=expensify-react-native-qrcode-svg
+source_remote=https://github.com/Expensify/react-native-qrcode-svg.git
+branch=main
+commit=0dbdcc6d9f5505a0438de3c0d3b1386fd6310f23
+license=LICENSE

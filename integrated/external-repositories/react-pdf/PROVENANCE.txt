@@ -1,0 +1,5 @@
+name=react-pdf
+source_remote=https://github.com/diegomura/react-pdf.git
+branch=master
+commit=56f40997cd5d96c9f5cbce660008444ef6da9f40
+license=LICENSE

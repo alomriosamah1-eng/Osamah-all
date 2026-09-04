@@ -1,0 +1,5 @@
+name=spectacle
+source_remote=https://github.com/FormidableLabs/spectacle.git
+branch=main
+commit=7cdefd53cb2c2c5475f4adee8dd16d089ff159b2
+license=LICENSE

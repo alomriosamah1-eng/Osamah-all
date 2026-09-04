@@ -1,0 +1,16 @@
+@import '../../css/variables.scss';
+
+.sectionTitle {
+  color: var(--oss-text-dark);
+  font-size: $font-sizes-h2;
+  font-weight: $font-weights-heading;
+  flex: auto;
+  line-height: $line-heights-heading;
+  margin: $spacing-md 0;
+  width: 100%;
+  text-align: center;
+
+  @media ($media-breakpoint-sm) {
+    margin: 0;
+  }
+}
